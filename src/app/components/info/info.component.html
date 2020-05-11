@@ -1,0 +1,25 @@
+<div class="main-container">
+    <header class="header">
+      <img src="./assets/img/logoUSTA22.png" alt="usta logo" class="logo">
+      <img src="./assets/img/psicologia.png" alt="psicología logo" class="logo logo--left">
+    </header>
+    <div class="intro" id="intro" *ngIf="intro">
+      <h1>Síndrome de burnout, funcionamiento familiar y rendimiento académico en estudiantes del programa de psicología de la Universidad Santo Tomás - Bogotá
+      </h1>
+      <h2 class="my-5">FACULTAD DE PSICOLOGÍA 
+        UNIVERSIDAD SANTO TOMÁS (USTA)
+        </h2>
+      <h2 class="mb-3">Autoras:</h2>
+      <p class="autoras">Camila Andrea Rada Combariza</p>
+      <p class="autoras">Julieth Carolina Garzon Callejas</p>
+      <p class="autoras">Karen Angélica Laverde Corredor</p>
+      <h2 class="my-3">Director:</h2>
+      <p class="autoras">Javier Vicente Gialdo Jaramillo</p>
+  
+      <p class="intro--description">En la presente página web, encontrarás los consentimientos informados y cuestionarios necesarios para hacer parte de la presente investigación, agradecemos mucho tu tiempo y colaboración,  tu participación es muy importante para nosotros. Recuerda leer muy bien antes de avanzar, la totalidad de la participación no te llevará mas de una hora. A continuación tendrás la opción de aceptar o no aceptar, libremente tu participación</p>
+      <button class="btn btn--green" (click)="displayPersonForm()">Siguiente &rarr;</button>
+    </div>
+    <div class="person" id="person" *ngIf="personInfo">
+        <h1>hola Mundo</h1>
+    </div>
+  </div>
