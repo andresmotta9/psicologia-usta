@@ -51,85 +51,92 @@
             </div>
 
             </div>
-            <div class="form-group row">
-              <label for="gender" class="col2 col-form-label">Genero</label>
-              <div class="col-8">
-                <select name="gender" id="gender" formControlName="genero" [class.is-invalid]="generoNoValido">
-                  <option value="" disabled>Selecciona tu genero</option>
-                  <option value="M">masculino</option>
-                  <option value="F">femenino</option>
-                  <option value="O">otro</option>
-                </select>
-                <small *ngIf="generoNoValido" class="text-danger">
-                  Seleccione una opción
-                </small>
+            <div class="group">
+              <div class="form-group">
+                <label for="gender" class="">Genero</label>
+                <div class="input-container">
+                  <select name="gender" id="gender" formControlName="genero" [class.is-invalid]="generoNoValido">
+                    <option value="" disabled>Selecciona tu genero</option>
+                    <option value="M">masculino</option>
+                    <option value="F">femenino</option>
+                    <option value="O">otro</option>
+                  </select>
+                  <small *ngIf="generoNoValido" class="text-danger">
+                    Seleccione una opción
+                  </small>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="tipoDoc" class="">Tipo de documento de identificación</label>
+                <div class="input-container">
+                  <select name="tipoDoc" id="tipoDoc" formControlName="tipoDoc" [class.is-invalid]="tipoDocNoValido">
+                    <option value="" disabled>Selecciona tu tipo de identificación</option>
+                    <option value="CC">Cédula de ciudadanía</option>
+                    <option value="TI">Tarjeta de identidad</option>
+                  </select>
+                  <small *ngIf="tipoDocNoValido" class="text-danger">
+                    Seleccione una opción
+                  </small>
+                </div>
               </div>
             </div>
-            <div class="form-group row">
-              <label for="tipoDoc" class="col2 col-form-label">Tipo de documento de identificación</label>
-              <div class="col-8">
-                <select name="tipoDoc" id="tipoDoc" formControlName="tipoDoc" [class.is-invalid]="tipoDocNoValido">
-                  <option value="" disabled>Selecciona tu documento de identificación</option>
-                  <option value="CC">Cédula de ciudadanía</option>
-                  <option value="TI">Tarjeta de identidad</option>
-                </select>
-                <small *ngIf="tipoDocNoValido" class="text-danger">
-                  Seleccione una opción
-                </small>
+            <div class="group">
+              <div class="form-group">
+                <label for="numDoc" class="">Número de documento de identificacón</label>
+                <div class="input-container">
+                  <input type="number" 
+                  class="form-control" 
+                  placeholder="Escriba su número de documento"
+                  formControlName="numDoc"
+                  [class.is-invalid]="numDocNoValido">
+                  <small *ngIf="numDocNoValido" class="text-danger">
+                    Ingrese una número valido
+                  </small>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="codEst" class="col2 col-form-label">Código estudiantil</label>
+                <div class="input-container">
+                  <input type="number" 
+                  class="form-control" 
+                  placeholder="Escriba su código estudiantil"
+                  formControlName="codEst"
+                  [class.is-invalid]="codEstNoValido">
+                  <small *ngIf="codEstNoValido" class="text-danger">
+                    Ingrese una número valido
+                  </small>
+                </div>
               </div>
             </div>
-            <div class="form-group row">
-              <label for="numDoc" class="col2 col-form-label">Número de documento de identificacón</label>
-              <div class="col-8">
-                <input type="number" 
-                class="form-control" 
-                placeholder="Escriba su número de documento"
-                formControlName="numDoc"
-                [class.is-invalid]="numDocNoValido">
-                <small *ngIf="numDocNoValido" class="text-danger">
-                  Ingrese una número valido
-                </small>
+            <div class="group">
+              <div class="form-group row">
+                <label for="estrato" class="">Estrato socioeconómico</label>
+                <div class="input-container">
+                  <select name="estrato" id="estrato" formControlName="estrato" [class.is-invalid]="estratoNoValido">
+                    <option value="" disabled>Selecciona tu estrato</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                  </select>
+                  <small *ngIf="estratoNoValido" class="text-danger">
+                    Seleccione una opción
+                  </small>
+                </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="codEst" class="col2 col-form-label">Código estudiantil</label>
-              <div class="col-8">
-                <input type="number" 
-                class="form-control" 
-                placeholder="Escriba su código estudiantil"
-                formControlName="codEst"
-                [class.is-invalid]="codEstNoValido">
-                <small *ngIf="codEstNoValido" class="text-danger">
-                  Ingrese una número valido
-                </small>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="estrato" class="col2 col-form-label">Estrato socioeconómico</label>
-              <div class="col-8">
-                <select name="estrato" id="estrato" formControlName="estrato" [class.is-invalid]="estratoNoValido">
-                  <option value="" disabled>Selecciona tu estrato</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                </select>
-                <small *ngIf="estratoNoValido" class="text-danger">
-                  Seleccione una opción
-                </small>
+              <div class="form-group">
+                <label class="">&nbsp;</label>
+                <div class="input-group">
+                  <button type="submit" class="btn btn-outline-primary btn-block">
+                    Guardar
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="form-group row">
-            <label class="col-2 col-form-label">&nbsp;</label>
-            <div class="input-group col-md-8">
-              <button type="submit" class="btn btn-outline-primary btn-block">
-                Guardar
-              </button>
-            </div>
-          </div>
+
         </form>
     </div>
   </div>
