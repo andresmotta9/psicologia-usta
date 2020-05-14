@@ -1,142 +1,209 @@
 <div class="main-container">
-    <header class="header">
-      <img src="./assets/img/logoUSTA22.png" alt="usta logo" class="logo">
-      <img src="./assets/img/psicologia.png" alt="psicología logo" class="logo logo--left">
-    </header>
-    <div class="intro" id="intro" *ngIf="intro">
-      <h1>Síndrome de burnout, funcionamiento familiar y rendimiento académico en estudiantes del programa de psicología de la Universidad Santo Tomás - Bogotá
-      </h1>
-      <h2 class="my-5">FACULTAD DE PSICOLOGÍA 
-        UNIVERSIDAD SANTO TOMÁS (USTA)
-        </h2>
-      <h2 class="mb-3">Autoras:</h2>
-      <p class="autoras">Camila Andrea Rada Combariza</p>
-      <p class="autoras">Julieth Carolina Garzon Callejas</p>
-      <p class="autoras">Karen Angélica Laverde Corredor</p>
-      <h2 class="my-3">Director:</h2>
-      <p class="autoras">Javier Vicente Gialdo Jaramillo</p>
-  
-      <p class="intro--description">En la presente página web, encontrarás los consentimientos informados y cuestionarios necesarios para hacer parte de la presente investigación, agradecemos mucho tu tiempo y colaboración,  tu participación es muy importante para nosotros. Recuerda leer muy bien antes de avanzar, la totalidad de la participación no te llevará mas de una hora. A continuación tendrás la opción de aceptar o no aceptar, libremente tu participación</p>
-      <button class="btn btn--green" (click)="displayPersonForm()">Siguiente &rarr;</button>
-    </div>
-    <div class="person" id="person" *ngIf="personInfo">
-        <form autocomplete="off" [formGroup]="forma" (ngSubmit)="save()">
-          <div class="formulario">
-            <div class="group">
-              <div class="form-group">
-                <label for="" class="">Nombre Completo</label>
-                <div class="input-container">
-                  <input type="text" 
-                  class="form-control" 
-                  placeholder="Nombre Completo"
-                  formControlName="nombre"
-                  [class.is-invalid]="nombreNoValido">
-                  <small *ngIf="nombreNoValido" class="text-danger">
-                    Ingrese 5 caracteres como mínimo
-                  </small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="" class="">Edad</label>
-                <div class="input-container">
-                  <input type="number" 
-                  class="form-control" 
-                  placeholder="Ingrese su edad"
-                  formControlName="edad"
-                  [class.is-invalid]="edadNoValido">
-                  <small *ngIf="edadNoValido" class="text-danger">
-                    Ingrese una edad valida
-                  </small>
-                </div>
-            </div>
+  <header class="header">
+    <img src="./assets/img/logoUSTA22.png" alt="usta logo" class="logo">
+    <img src="./assets/img/psicologia.png" alt="psicología logo" class="logo logo--left">
+  </header>
+  <!-- <div class="intro" id="intro" *ngIf="intro">
+    <h1>Síndrome de burnout, funcionamiento familiar y rendimiento académico en estudiantes del programa de psicología
+      de la Universidad Santo Tomás - Bogotá
+    </h1>
+    <h2 class="my-5">FACULTAD DE PSICOLOGÍA
+      UNIVERSIDAD SANTO TOMÁS (USTA)
+    </h2>
+    <h2 class="mb-3">Autoras:</h2>
+    <p class="autoras">Camila Andrea Rada Combariza</p>
+    <p class="autoras">Julieth Carolina Garzon Callejas</p>
+    <p class="autoras">Karen Angélica Laverde Corredor</p>
+    <h2 class="my-3">Director:</h2>
+    <p class="autoras">Javier Vicente Gialdo Jaramillo</p>
 
+    <p class="intro--description">En la presente página web, encontrarás los consentimientos informados y cuestionarios
+      necesarios para hacer parte de la presente investigación, agradecemos mucho tu tiempo y colaboración, tu
+      participación es muy importante para nosotros. Recuerda leer muy bien antes de avanzar, la totalidad de la
+      participación no te llevará mas de una hora. A continuación tendrás la opción de aceptar o no aceptar, libremente
+      tu participación</p>
+    <button class="btn btn--green" (click)="displayPersonForm()">Siguiente &rarr;</button>
+  </div> -->
+  <!-- <div class="person" id="person" *ngIf="personInfo">
+    <form autocomplete="off" [formGroup]="forma" (ngSubmit)="save()">
+      <div class="formulario">
+        <div class="group">
+          <div class="form-group">
+            <label for="" class="">Nombre Completo</label>
+            <div class="input-container">
+              <input type="text" class="form-control" placeholder="Nombre Completo" formControlName="nombre"
+                [class.is-invalid]="nombreNoValido">
+              <small *ngIf="nombreNoValido" class="text-danger">
+                Ingrese 5 caracteres como mínimo
+              </small>
             </div>
-            <div class="group">
-              <div class="form-group">
-                <label for="gender" class="">Genero</label>
-                <div class="input-container">
-                  <select name="gender" id="gender" formControlName="genero" [class.is-invalid]="generoNoValido">
-                    <option value="" disabled>Selecciona tu genero</option>
-                    <option value="M">masculino</option>
-                    <option value="F">femenino</option>
-                    <option value="O">otro</option>
-                  </select>
-                  <small *ngIf="generoNoValido" class="text-danger">
-                    Seleccione una opción
-                  </small>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="tipoDoc" class="">Tipo de documento de identificación</label>
-                <div class="input-container">
-                  <select name="tipoDoc" id="tipoDoc" formControlName="tipoDoc" [class.is-invalid]="tipoDocNoValido">
-                    <option value="" disabled>Selecciona tu tipo de identificación</option>
-                    <option value="CC">Cédula de ciudadanía</option>
-                    <option value="TI">Tarjeta de identidad</option>
-                  </select>
-                  <small *ngIf="tipoDocNoValido" class="text-danger">
-                    Seleccione una opción
-                  </small>
-                </div>
-              </div>
-            </div>
-            <div class="group">
-              <div class="form-group">
-                <label for="numDoc" class="">Número de documento de identificacón</label>
-                <div class="input-container">
-                  <input type="number" 
-                  class="form-control" 
-                  placeholder="Escriba su número de documento"
-                  formControlName="numDoc"
-                  [class.is-invalid]="numDocNoValido">
-                  <small *ngIf="numDocNoValido" class="text-danger">
-                    Ingrese una número valido
-                  </small>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="codEst" class="col2 col-form-label">Código estudiantil</label>
-                <div class="input-container">
-                  <input type="number" 
-                  class="form-control" 
-                  placeholder="Escriba su código estudiantil"
-                  formControlName="codEst"
-                  [class.is-invalid]="codEstNoValido">
-                  <small *ngIf="codEstNoValido" class="text-danger">
-                    Ingrese una número valido
-                  </small>
-                </div>
-              </div>
-            </div>
-            <div class="group">
-              <div class="form-group row">
-                <label for="estrato" class="">Estrato socioeconómico</label>
-                <div class="input-container">
-                  <select name="estrato" id="estrato" formControlName="estrato" [class.is-invalid]="estratoNoValido">
-                    <option value="" disabled>Selecciona tu estrato</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                  </select>
-                  <small *ngIf="estratoNoValido" class="text-danger">
-                    Seleccione una opción
-                  </small>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="">&nbsp;</label>
-                <div class="input-group">
-                  <button type="submit" class="btn btn-outline-primary btn-block">
-                    Guardar
-                  </button>
-                </div>
-              </div>
+          </div>
+          <div class="form-group">
+            <label for="" class="">Edad</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Ingrese su edad" formControlName="edad"
+                [class.is-invalid]="edadNoValido">
+              <small *ngIf="edadNoValido" class="text-danger">
+                Ingrese una edad valida
+              </small>
             </div>
           </div>
 
-        </form>
+        </div>
+        <div class="group">
+          <div class="form-group">
+            <label for="gender" class="">Genero</label>
+            <div class="input-container">
+              <select name="gender" id="gender" formControlName="genero" [class.is-invalid]="generoNoValido">
+                <option value="" disabled>Selecciona tu genero</option>
+                <option value="M">masculino</option>
+                <option value="F">femenino</option>
+                <option value="O">otro</option>
+              </select>
+              <small *ngIf="generoNoValido" class="text-danger">
+                Seleccione una opción
+              </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="tipoDoc" class="">Tipo de documento de identificación</label>
+            <div class="input-container">
+              <select name="tipoDoc" id="tipoDoc" formControlName="tipoDoc" [class.is-invalid]="tipoDocNoValido">
+                <option value="" disabled>Selecciona tu tipo de identificación</option>
+                <option value="CC">Cédula de ciudadanía</option>
+                <option value="TI">Tarjeta de identidad</option>
+              </select>
+              <small *ngIf="tipoDocNoValido" class="text-danger">
+                Seleccione una opción
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="group">
+          <div class="form-group">
+            <label for="numDoc" class="">Número de documento de identificacón</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Escriba su número de documento"
+                formControlName="numDoc" [class.is-invalid]="numDocNoValido">
+              <small *ngIf="numDocNoValido" class="text-danger">
+                Ingrese una número valido
+              </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="codEst" class="col2 col-form-label">Código estudiantil</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Escriba su código estudiantil"
+                formControlName="codEst" [class.is-invalid]="codEstNoValido">
+              <small *ngIf="codEstNoValido" class="text-danger">
+                Ingrese una número valido
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="group">
+          <div class="form-group row">
+            <label for="estrato" class="">Estrato socioeconómico</label>
+            <div class="input-container">
+              <select name="estrato" id="estrato" formControlName="estrato" [class.is-invalid]="estratoNoValido">
+                <option value="" disabled>Selecciona tu estrato</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+              <small *ngIf="estratoNoValido" class="text-danger">
+                Seleccione una opción
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="">&nbsp;</label>
+            <div class="input-group w-50">
+              <button type="submit" class="btn btn-outline-primary btn-block">
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>  -->
+  <div class="con con1" id="con1" *ngIf="con1">
+    <div class="alert alert-dark" role="alert">
+      INFORMACIÓN PARA PADRES
     </div>
+    <h2>SÍNDROME DE BURNOUT, FUNCIONAMIENTO FAMILIAR Y RENDIMIENTO ACADÉMICO EN ESTUDIANTES DEL
+      PROGRAMA DE PSICOLOGÍA DE LA UNIVERSIDAD SANTO TOMÁS</h2>
+    <h3 class="my-4">FACULTAD DE PSICOLOGÍA <br> UNIVERSIDAD SANTO TOMÁS (USTA)</h3>
+    <p>Estamos solicitando la colaboración de su hijo como participante en el proyecto de investigación <b>Síndrome de
+        burnout, funcionamiento familiar y rendimiento académico en estudiantes del programa de psicología de la
+        Universidad Santo Tomás. Este proyecto es avalado por la Universidad Santo Tomás.</b> La participación del mismo
+      es
+      completamente voluntaria y requiere de su autorización y la información que sea consignada en el mismo se
+      mantendrá de manera anónima, será confidencial y sólo será utilizada con fines de investigación. El tiempo
+      estimado para la finalización de los cuestionarios que serán llevados a cabo por el menor de edad es de
+      aproximadamente una hora. Si Usted decide autorizar a su hijo a participar, significa que Usted ha leído y firmado
+      el formato de consentimiento informado y autoriza la participación de su hijo en el mismo. </p>
+    <h3 class="my-4">CONSENTIMIENTO INFORMADO <sup>1</sup> </h3>
+    <h3>Documento de consentimiento informado para la autorización de menor de edad a participación en el estudio y
+      aplicación de los instrumentos
+      Maslach Burnout Inventory (MBI- Student) y
+      Percepción del Funcionamiento Familiar (APGAR-Familiar)
+    </h3>
+
+    <ul class="my-4">
+      <li>
+        Por favor, lea cuidadosamente esta información sobre el proyecto de investigación titulado síndrome de burnout,
+        funcionamiento familiar, y rendimiento académico.
+      </li>
+      <li>
+        Una vez haya comprendido la información, se le preguntará si desea permitir a su hijo participar de la
+        investigación. En caso afirmativo, seleccione ACEPTAR y permita que el menor continúe succionando los
+        cuestionarios.
+      </li>
+    </ul>
+    <h3>RESUMEN DE LA INVESTIGACIÓN PROPUESTA</h3>
+    <p class="my-4">La investigación propuesta tiene como objetivo correlacionar el síndrome de burnout con el
+      funcionamiento
+      familiar y el rendimiento académico de los estudiantes, con el fin de establecer la magnitud del efecto recíproco
+      para con el síndrome. El muestreo será no-probabilístico por conveniencia y se trabajará de forma no interventiva.
+      La información se analizará a través de los coeficientes de correlación bivariada y multivariada. En cuanto a las
+      estrategias de recolección de la información se tomará: 1) El síndrome de Burnout se medirá a través del
+      cuestionario Maslach Burnout Inventory (MBI-Student), que considera las dimensiones de Agotamiento, Actitud
+      negativa, Cinismo y Autoeficacia académica. 2) La percepción del funcionamiento familiar se indaga por medio del
+      cuestionario APGAR-Familiar, que mide Adaptación (A), Participación (P), Gradiente de Recursos (G), Afectividad
+      (A) y Recursos o Capacidad Resolutiva (R). </p>
+    <h3>OBJETIVO</h3>
+    <p class="my-4">Correlacionar las variables síndrome de burnout, funcionamiento familiar y rendimiento académico, en
+      estudiantes del programa de Psicología de la Universidad Santo Tomás del campus universitario San Alberto Magno,
+      con el fin de establecer la magnitud del efecto individual y en conjunto con éste síndrome.</p>
+    <h3>¿POR QUÉ SU HIJO PUEDE PARTICIPAR EN ESTA INVESTIGACIÓN?</h3>
+    <p class="mt-4">Su hijo puede participar en esta investigación si cumple con los siguientes requisitos:</p>
+    <ul class="my-4">
+      <li>Tiene su consentimiento como padre para su participación.</li>
+      <li>Se encuentra en compañía de un testigo mayor de edad al momento de diligenciar el presente consentimiento o
+        asentimiento informado.</li>
+      <li>Es actualmente estudiante del programa de psicología de la Universidad Santo Tomás- Bogotá</li>
+    </ul>
+    <h3>RIESGOS</h3>
+    <p class="mt-4">Esta investigación, de acuerdo al Artículo 11 de la Resolución 8430 (Ministerio de Salud, 1993), es
+      de riesgo mínimo. Algunos participantes podrán experimentar angustia leve y pasajera mientras responden los
+      cuestionarios al recordar eventos negativos de su experiencia personal y/o estudiantil. Sin embargo,
+      investigaciones que han usado metodologías e instrumentos similares no han reportado eventos estresantes por parte
+      de los participantes.</p>
+    <p class="mt-4">En caso de experimentar una angustia mayor, al finalizar los cuestionarios el participante una
+      dirección (e-mail) de contacto de alguno de los investigadores, quienes le proporcionarán la información y apoyo
+      necesario para que pueda obtener ayuda.</p>
   </div>
+  <div style="height: 1rem;" *ngIf="con1">&nbsp;</div>
+  <div class="con con2" id="con2" *ngIf="con2">
+    <h1 class="con-title">SÍNDROME DE BURNOUT, FUNCIONAMIENTO FAMILIAR Y RENDIMIENTO ACADÉMICO EN ESTUDIANTES DEL
+      PROGRAMA DE PSICOLOGÍA DE LA UNIVERSIDAD SANTO TOMÁS</h1>
+
+  </div>
+  <div style="height: 1rem;" *ngIf="con2">&nbsp;</div>
+</div>

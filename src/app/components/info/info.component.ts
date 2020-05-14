@@ -15,6 +15,18 @@ export class InfoComponent implements OnInit {
   }
   personInfo = false;
   intro = true;
+  con1 = true;
+  con2 = false;
+  users: any[] = [];
+  user = {
+    nombre: null,
+    edad: null,
+    genero: null,
+    tipoDoc: null,
+    numDoc: null,
+    codEst: null,
+    estrato: null
+  };
 
   ngOnInit(): void {
   }
@@ -43,13 +55,20 @@ export class InfoComponent implements OnInit {
 
   createForm() {
     this.forma = this.fb.group({
-      nombre: ['', [ Validators.required, Validators.minLength(5)]],
-      edad: ['', [Validators.required, Validators.min(10)]],
-      genero: ['' , Validators.required],
-      tipoDoc: ['', Validators.required],
-      numDoc: ['', [Validators.required, Validators.min(1000)]],
-      codEst: ['', [Validators.required, Validators.min(100)]],
-      estrato: ['', Validators.required]
+      nombre: ['' ],
+      edad: ['' ],
+      genero: [''],
+      tipoDoc: ['' ],
+      numDoc: ['' ],
+      codEst: ['' ],
+      estrato: ['' ]
+      // nombre: ['', [ Validators.required, Validators.minLength(5)]],
+      // edad: ['', [Validators.required, Validators.min(10)]],
+      // genero: ['' , Validators.required],
+      // tipoDoc: ['', Validators.required],
+      // numDoc: ['', [Validators.required, Validators.min(1000)]],
+      // codEst: ['', [Validators.required, Validators.min(100)]],
+      // estrato: ['', Validators.required]
     });
   }
 
@@ -69,6 +88,38 @@ export class InfoComponent implements OnInit {
       return Object.values( this.forma.controls ).forEach (control => {
         control.markAsTouched();
       });
+    } else {
+      this.setUserData();
+      let person = document.getElementById("person");
+      person.style.animation = "fadeOut 1s ease-out";
+      setTimeout( () => {
+        this.personInfo = false;
+        this.showLetter();
+      }, 1000);
+    }
+  }
+
+  setUserData() {
+    this.user.nombre  = this.forma.get('nombre').value;
+    this.user.edad  = this.forma.get('edad').value;
+    this.user.genero  = this.forma.get('genero').value;
+    this.user.tipoDoc  = this.forma.get('tipoDoc').value;
+    this.user.numDoc  = this.forma.get('numDoc').value;
+    this.user.codEst  = this.forma.get('codEst').value;
+    this.user.estrato  = this.forma.get('estrato').value;
+    console.log(this.user);
+  }
+
+  showLetter() {
+    if(this.user.edad >= 18) {
+      this.con2 = true;
+      let con2 = document.getElementById("con2");
+      con2.style.animation = "fadeIn 1s ease-out";
+    } else {
+      this.con1 = true;
+      let con1 = document.getElementById("con1");
+      con1.style.animation = "fadeIn 1s ease-out";
+      // setTimeout(() => $("#exampleModalCenter").modal("show"), 2000)
     }
   }
 
