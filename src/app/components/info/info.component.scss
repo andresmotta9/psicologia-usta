@@ -243,6 +243,7 @@ body {
     box-shadow: var(--shadow-dark);
     min-height: 20rem;
     border-radius: 40px;
+    overflow-x: hidden;
     @include respond(phone){
         border-radius: 20px;
     }
