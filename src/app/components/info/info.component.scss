@@ -302,6 +302,10 @@ body {
     &--left {
         margin-right: 2rem;
     }
+
+    @include respond(phone) {
+        height: 5.25rem;
+    }
 }
 
 .intro {
@@ -394,7 +398,7 @@ body {
 }
 
 .alert {
-    width: fit-content;
+    width: auto;
     position: absolute;
     top: -27px;
     left: 2%;
