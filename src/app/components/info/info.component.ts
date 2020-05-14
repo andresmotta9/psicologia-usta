@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class InfoComponent implements OnInit {
 
   forma: FormGroup;
+  formCon: FormGroup;
 
   constructor( private fb: FormBuilder) { 
     this.createForm();
@@ -53,6 +54,22 @@ export class InfoComponent implements OnInit {
     return this.forma.get('estrato').invalid && this.forma.get('estrato').touched;
   }
 
+  get numDoc2NoValido() {
+    return this.formCon.get('numDoc').invalid && this.formCon.get('numDoc').touched;
+  }
+  get codEst2NoValido() {
+    return this.formCon.get('codEst').invalid && this.formCon.get('codEst').touched;
+  }
+  get nombreTestigoNoValido() {
+    return this.formCon.get('nombreTestigo').invalid && this.formCon.get('nombreTestigo').touched;
+  }
+  get numDocTestigoNoValido() {
+    return this.formCon.get('numDocTestigo').invalid && this.formCon.get('numDocTestigo').touched;
+  }
+  get emailNoValido() {
+    return this.formCon.get('email').invalid && this.formCon.get('email').touched;
+  }
+
   createForm() {
     this.forma = this.fb.group({
       nombre: ['', [ Validators.required, Validators.minLength(5)]],
@@ -63,9 +80,18 @@ export class InfoComponent implements OnInit {
       codEst: ['', [Validators.required, Validators.min(100)]],
       estrato: ['', Validators.required]
     });
+
+    this.formCon = this.fb.group({
+      numDoc:  ['', [Validators.required, Validators.min(1000)]],
+      codEst: ['', [Validators.required, Validators.min(100)]],
+      nombreTestigo: ['', [ Validators.required, Validators.minLength(5)]],
+      numDocTestigo: ['', [Validators.required, Validators.min(1000)]],
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]]
+    })
   }
 
   displayPersonForm() {
+    window.scrollTo(0,0);
     let hideIntro = document.getElementById("intro");
     hideIntro.style.animation = "fadeOut 1s ease-out";
     setTimeout( () => {
@@ -82,6 +108,7 @@ export class InfoComponent implements OnInit {
         control.markAsTouched();
       });
     } else {
+      window.scrollTo(0,0);
       this.setUserData();
       let person = document.getElementById("person");
       person.style.animation = "fadeOut 1s ease-out";
@@ -112,6 +139,14 @@ export class InfoComponent implements OnInit {
       this.con1 = true;
       let con1 = document.getElementById("con1");
       con1.style.animation = "fadeIn 1s ease-out";
+    }
+  }
+
+  saveCon() {
+    if(this.formCon.invalid) {
+      return Object.values( this.formCon.controls ).forEach (control => {
+        control.markAsTouched();
+      });
     }
   }
 
