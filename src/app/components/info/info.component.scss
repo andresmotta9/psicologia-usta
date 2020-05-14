@@ -241,6 +241,10 @@ body {
     background-color: var(--color-grey-light-1);
     box-shadow: var(--shadow-dark);
     min-height: 20rem;
+    border-radius: 40px;
+    @include respond(phone){
+        border-radius: 20px;
+    }
 
     // @media only screen and (max-width: $bp-lgst) {
     //     margin: 0;
@@ -259,6 +263,10 @@ body {
         // height: 20rem;
         color: $color-black;
         padding: 2.5rem;
+        border-radius: 40px;
+        @include respond(phone){
+            border-radius: 20px;
+        }
 
         h1,h2,h3 {
             text-align: center;
@@ -388,8 +396,12 @@ body {
     width: 25%;
     position: absolute;
     top: -20px;
-    left: 0;
+    left: 37px;
     font-size: 1.2rem;
+    @include respond(phone) {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 ///////// button ///////
