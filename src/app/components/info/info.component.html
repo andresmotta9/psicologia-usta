@@ -3,7 +3,7 @@
     <img src="./assets/img/logoUSTA22.png" alt="usta logo" class="logo">
     <img src="./assets/img/psicologia.png" alt="psicología logo" class="logo logo--left">
   </header>
-  <!-- <div class="intro" id="intro" *ngIf="intro">
+  <div class="intro" id="intro" *ngIf="intro">
     <h1>Síndrome de burnout, funcionamiento familiar y rendimiento académico en estudiantes del programa de psicología
       de la Universidad Santo Tomás - Bogotá
     </h1>
@@ -23,8 +23,8 @@
       participación no te llevará mas de una hora. A continuación tendrás la opción de aceptar o no aceptar, libremente
       tu participación</p>
     <button class="btn btn--green" (click)="displayPersonForm()">Siguiente &rarr;</button>
-  </div> -->
-  <!-- <div class="person" id="person" *ngIf="personInfo">
+  </div>
+  <div class="person" id="person" *ngIf="personInfo">
     <form autocomplete="off" [formGroup]="forma" (ngSubmit)="save()">
       <div class="formulario">
         <div class="group">
@@ -131,7 +131,7 @@
       </div>
 
     </form>
-  </div>  -->
+  </div> 
   <div class="con con1" id="con1" *ngIf="con1">
     <div class="alert alert-dark" role="alert">
       INFORMACIÓN PARA PADRES
@@ -198,6 +198,7 @@
     <p class="mt-4">En caso de experimentar una angustia mayor, al finalizar los cuestionarios el participante una
       dirección (e-mail) de contacto de alguno de los investigadores, quienes le proporcionarán la información y apoyo
       necesario para que pueda obtener ayuda.</p>
+    <p class="mt-4">Tenga en cuenta que su hijo es libre de abandonar la investigación en cualquier momento, incluso si ya terminó de responder.</p>
   </div>
   <div style="height: 1rem;" *ngIf="con1">&nbsp;</div>
   <div class="con con2" id="con2" *ngIf="con2">

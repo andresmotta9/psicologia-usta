@@ -13,9 +13,9 @@ export class InfoComponent implements OnInit {
   constructor( private fb: FormBuilder) { 
     this.createForm();
   }
-  personInfo = false;
   intro = true;
-  con1 = true;
+  personInfo = false;
+  con1 = false;
   con2 = false;
   users: any[] = [];
   user = {
@@ -55,20 +55,13 @@ export class InfoComponent implements OnInit {
 
   createForm() {
     this.forma = this.fb.group({
-      nombre: ['' ],
-      edad: ['' ],
-      genero: [''],
-      tipoDoc: ['' ],
-      numDoc: ['' ],
-      codEst: ['' ],
-      estrato: ['' ]
-      // nombre: ['', [ Validators.required, Validators.minLength(5)]],
-      // edad: ['', [Validators.required, Validators.min(10)]],
-      // genero: ['' , Validators.required],
-      // tipoDoc: ['', Validators.required],
-      // numDoc: ['', [Validators.required, Validators.min(1000)]],
-      // codEst: ['', [Validators.required, Validators.min(100)]],
-      // estrato: ['', Validators.required]
+      nombre: ['', [ Validators.required, Validators.minLength(5)]],
+      edad: ['', [Validators.required, Validators.min(10)]],
+      genero: ['' , Validators.required],
+      tipoDoc: ['', Validators.required],
+      numDoc: ['', [Validators.required, Validators.min(1000)]],
+      codEst: ['', [Validators.required, Validators.min(100)]],
+      estrato: ['', Validators.required]
     });
   }
 
@@ -119,7 +112,6 @@ export class InfoComponent implements OnInit {
       this.con1 = true;
       let con1 = document.getElementById("con1");
       con1.style.animation = "fadeIn 1s ease-out";
-      // setTimeout(() => $("#exampleModalCenter").modal("show"), 2000)
     }
   }
 
