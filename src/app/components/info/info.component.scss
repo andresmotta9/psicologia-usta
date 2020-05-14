@@ -131,7 +131,8 @@ body {
     background-image: linear-gradient(to right bottom, var(--color-primary), var(--color-primary-dark));
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 100%;
+    min-height: 100vh;
+    height: 100%;
     box-sizing: border-box;
 }
 
@@ -263,9 +264,9 @@ body {
         // height: 20rem;
         color: $color-black;
         padding: 2.5rem;
-        border-radius: 40px;
+        border-radius: 30px;
         @include respond(phone){
-            border-radius: 20px;
+            border-radius: 15px;
         }
 
         h1,h2,h3 {
