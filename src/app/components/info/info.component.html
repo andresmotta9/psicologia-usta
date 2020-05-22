@@ -11,11 +11,11 @@
       UNIVERSIDAD SANTO TOMÁS (USTA)
     </h2>
     <h2 class="mb-3">Autoras:</h2>
-    <p class="autoras">Camila Andrea Rada Combariza</p>
     <p class="autoras">Julieth Carolina Garzon Callejas</p>
     <p class="autoras">Karen Angélica Laverde Corredor</p>
+    <p class="autoras">Camila Andrea Rada Combariza</p>
     <h2 class="my-3">Director:</h2>
-    <p class="autoras">Javier Vicente Gialdo Jaramillo</p>
+    <p class="autoras">Javier Vicente Giraldo Jaramillo</p>
 
     <p class="intro--description">En la presente página web, encontrarás los consentimientos informados y cuestionarios
       necesarios para hacer parte de la presente investigación, agradecemos mucho tu tiempo y colaboración, tu
@@ -52,10 +52,10 @@
         </div>
         <div class="group">
           <div class="form-group">
-            <label for="gender" class="">Genero</label>
+            <label for="gender" class="">Género</label>
             <div class="input-container">
               <select name="gender" id="gender" formControlName="genero" [class.is-invalid]="generoNoValido">
-                <option value="" disabled>Selecciona tu genero</option>
+                <option value="" disabled>Selecciona tu género</option>
                 <option value="M">masculino</option>
                 <option value="F">femenino</option>
                 <option value="O">otro</option>
@@ -81,7 +81,7 @@
         </div>
         <div class="group">
           <div class="form-group">
-            <label for="numDoc" class="">Número de documento de identificacón</label>
+            <label for="numDoc" class="">Número de documento de identificación</label>
             <div class="input-container">
               <input type="number" class="form-control" placeholder="Escriba su número de documento"
                 formControlName="numDoc" [class.is-invalid]="numDocNoValido">
@@ -131,7 +131,7 @@
       </div>
 
     </form>
-  </div> 
+  </div>
   <div class="con con1" id="con1" *ngIf="con1">
     <div class="alert alert-dark" role="alert">
       INFORMACIÓN PARA PADRES
@@ -140,7 +140,7 @@
       PROGRAMA DE PSICOLOGÍA DE LA UNIVERSIDAD SANTO TOMÁS</h2>
     <h3 class="my-4">FACULTAD DE PSICOLOGÍA <br> UNIVERSIDAD SANTO TOMÁS (USTA)</h3>
     <p>Estamos solicitando la colaboración de su hijo como participante en el proyecto de investigación <b>Síndrome de
-        burnout, funcionamiento familiar y rendimiento académico en estudiantes del programa de psicología de la
+        Burnout, funcionamiento familiar y rendimiento académico en estudiantes del programa de psicología de la
         Universidad Santo Tomás. Este proyecto es avalado por la Universidad Santo Tomás.</b> La participación del mismo
       es
       completamente voluntaria y requiere de su autorización y la información que sea consignada en el mismo se
@@ -254,93 +254,100 @@
       comunicarse con la línea del Servicio de Atención Psicológica - SAP 5878797 ext. 1941 / 1942 para comunicarse con
       un profesional en psicología. Una copia de este consentimiento informado será enviada al correo electrónico desde
       el cual sea respondido el mismo.</p>
-      <form autocomplete="off" [formGroup]="formCon" (ngSubmit)="saveCon()">
-        <div class="formulario">
-          <div class="group">
-            <div class="form-group">
-              <label for="" class="">Documento de identidad del estudiante:</label>
-              <div class="input-container">
-                <input type="number" class="form-control" placeholder="Documento de identidad" formControlName="numDoc"
-                  [class.is-invalid]="numDoc2NoValido">
-                <small *ngIf="numDoc2NoValido" class="text-danger">
-                  Ingrese un documento valido
-                </small>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="" class="">Código</label>
-              <div class="input-container">
-                <input type="number" class="form-control" placeholder="Ingrese su código" formControlName="codEst"
-                  [class.is-invalid]="codEst2NoValido">
-                <small *ngIf="codEst2NoValido" class="text-danger">
-                  Ingrese un código valido
-                </small>
-              </div>
-            </div>
-  
-          </div>
-          <div class="group">
-            <div class="form-group">
-              <label for="nombreTestigo" class="">Nombre del Testigo</label>
-              <div class="input-container">
-                <input type="text" class="form-control" placeholder="Nombre del testigo"
-                  formControlName="nombreTestigo" [class.is-invalid]="nombreTestigoNoValido">
-                <small *ngIf="nombreTestigoNoValido" class="text-danger">
-                  Ingrese nombre y apellido
-                </small>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="numDocTestigo" class="">Documento de Identidad</label>
-              <div class="input-container">
-                <input type="number" class="form-control" placeholder="Escriba su documento de identidad"
-                  formControlName="numDocTestigo" [class.is-invalid]="numDocTestigoNoValido">
-                <small *ngIf="numDocTestigoNoValido" class="text-danger">
-                  Ingrese un documento valido
-                </small>
-              </div>
+    <form autocomplete="off" [formGroup]="formCon" (ngSubmit)="saveCon()">
+      <div class="formulario">
+        <div class="group">
+          <div class="form-group">
+            <label for="" class="">Documento de identidad del estudiante:</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Documento de identidad" formControlName="numDoc"
+                [class.is-invalid]="numDoc2NoValido">
+              <small *ngIf="numDoc2NoValido" class="text-danger">
+                Ingrese un documento valido
+              </small>
             </div>
           </div>
-          <div class="group">
-            <div class="form-group">
-              <label for="email" class="">Correo Electrónico</label>
-              <div class="input-container input-email">
-                <input type="email" class="form-control email" placeholder="Escriba su correo electrónico"
-                  formControlName="email" [class.is-invalid]="emailNoValido">
-                <small *ngIf="emailNoValido" class="text-danger">
-                  Ingrese un correo valido
-                </small>
-              </div>
+          <div class="form-group">
+            <label for="" class="">Código</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Ingrese su código" formControlName="codEst"
+                [class.is-invalid]="codEst2NoValido">
+              <small *ngIf="codEst2NoValido" class="text-danger">
+                Ingrese un código valido
+              </small>
             </div>
-            <div class="form-group">
-              <label class="">&nbsp;</label>
-              <div class="input-group justify-content-center">
-                <button type="submit" class="btn btn-outline-success btn-block w-auto">
-                  ACEPTO
-                </button>
-                <button type="submit" class="btn btn-outline-danger btn-block w-auto">
-                  NO ACEPTO
-                </button>
-              </div>
-              <!-- <div class="input-group w-50">
-                <button type="submit" class="btn btn-danger btn-block">
-                  NO ACEPTO
-                </button>
-              </div> -->
+          </div>
+
+        </div>
+        <div class="group">
+          <div class="form-group">
+            <label for="nombreTestigo" class="">Nombre del Testigo</label>
+            <div class="input-container">
+              <input type="text" class="form-control" placeholder="Nombre del testigo" formControlName="nombreTestigo"
+                [class.is-invalid]="nombreTestigoNoValido">
+              <small *ngIf="nombreTestigoNoValido" class="text-danger">
+                Ingrese nombre y apellido
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="numDocTestigo" class="">Documento de Identidad</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Escriba su documento de identidad"
+                formControlName="numDocTestigo" [class.is-invalid]="numDocTestigoNoValido">
+              <small *ngIf="numDocTestigoNoValido" class="text-danger">
+                Ingrese un documento valido
+              </small>
             </div>
           </div>
         </div>
-      </form>
+        <div class="group">
+          <div class="form-group">
+            <label for="email" class="">Correo Electrónico</label>
+            <div class="input-container input-email">
+              <input type="email" class="form-control email" placeholder="Escriba su correo electrónico"
+                formControlName="email" [class.is-invalid]="emailNoValido">
+              <small *ngIf="emailNoValido" class="text-danger">
+                Ingrese un correo valido
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="numDocTestigo" class="">Número de contacto</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Escriba su número de contacto"
+                formControlName="contacNum" [class.is-invalid]="contacNumNoValido">
+              <small *ngIf="contacNumNoValido" class="text-danger">
+                Ingrese un número de celuar valido
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="group justify-content-center">
+          <div class="form-group">
+            <label class="">&nbsp;</label>
+            <div class="input-group justify-content-center">
+              <button type="submit" class="btn btn-outline-success btn-block w-auto mr-2">
+                ACEPTO
+              </button>
+              <button (click)="dismissForm()" class="btn btn-outline-danger btn-block w-auto">
+                NO ACEPTO
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
   <div style="height: 1rem;" *ngIf="con1">&nbsp;</div>
   <div class="con con2" id="con2" *ngIf="con2">
-    <div class="alert alert-dark" role="alert">
+    <div class="alert alert-success" role="alert">
       INFORMACIÓN PARA ESTUDIANTES
     </div>
     <h2>SÍNDROME DE BURNOUT, FUNCIONAMIENTO FAMILIAR Y RENDIMIENTO ACADÉMICO EN ESTUDIANTES DEL PROGRAMA DE PSICOLOGÍA
       DE LA UNIVERSIDAD SANTO TOMÁS</h2>
     <h3 class="my-4">FACULTAD DE PSICOLOGÍA <br> UNIVERSIDAD SANTO TOMÁS (USTA)</h3>
-    <p>Estamos solicitando su colaboración como participante en el proyecto de investigación <b>Síndrome de burnout,
+    <p>Estamos solicitando su colaboración como participante en el proyecto de investigación <b>Síndrome de Burnout,
         funcionamiento familiar y rendimiento académico en estudiantes del programa de psicología de la Universidad
         Santo Tomás.</b> Este proyecto es avalado por la Universidad Santo Tomás. Su participación es completamente
       voluntaria y la información aquí consignada se mantendrá anónima, es confidencial y sólo será utilizada con fines
@@ -469,7 +476,218 @@
       comunicarse con la línea del Servicio de Atención Psicológica - SAP 5878797 ext. 1941 / 1942 para comunicarse con
       un profesional en psicología. Una copia de este consentimiento informado será enviada al correo electrónico desde
       el cual sea respondido el mismo.</p>
+    <form autocomplete="off" [formGroup]="formCon2" (ngSubmit)="saveCon2()">
+      <div class="formulario">
+        <div class="group">
+          <div class="form-group">
+            <label for="" class="">Documento de identidad del estudiante:</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Documento de identidad" formControlName="numDocEst"
+                [class.is-invalid]="numDocEstNoValido">
+              <small *ngIf="numDocEstNoValido" class="text-danger">
+                Ingrese un documento valido
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="" class="">Código</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Ingrese su código" formControlName="codEstEst"
+                [class.is-invalid]="codEstEstNoValido">
+              <small *ngIf="codEstEstNoValido" class="text-danger">
+                Ingrese un código valido
+              </small>
+            </div>
+          </div>
+
+        </div>
+        <div class="group">
+          <div class="form-group">
+            <label for="nombreTestigo" class="">Nombre del Testigo</label>
+            <div class="input-container">
+              <input type="text" class="form-control" placeholder="Nombre del testigo"
+                formControlName="nombreTestigoEst" [class.is-invalid]="nombreTestigoEstNoValido">
+              <small *ngIf="nombreTestigoEstNoValido" class="text-danger">
+                Ingrese nombre y apellido
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="numDocTestigo" class="">Documento de Identidad</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Escriba su documento de identidad"
+                formControlName="numDocTestigoEst" [class.is-invalid]="numDocTestigoEstNoValido">
+              <small *ngIf="numDocTestigoEstNoValido" class="text-danger">
+                Ingrese un documento valido
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="group">
+          <div class="form-group">
+            <label for="email" class="">Correo Electrónico</label>
+            <div class="input-container input-email">
+              <input type="email" class="form-control email" placeholder="Escriba su correo electrónico"
+                formControlName="emailEst" [class.is-invalid]="emailEstNoValido">
+              <small *ngIf="emailEstNoValido" class="text-danger">
+                Ingrese un correo valido
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="numDocTestigo" class="">Número de contacto</label>
+            <div class="input-container">
+              <input type="number" class="form-control" placeholder="Escriba su número de contacto"
+                formControlName="contacNumEst" [class.is-invalid]="contacNumEstNoValido">
+              <small *ngIf="contacNumEstNoValido" class="text-danger">
+                Ingrese un número de celuar valido
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="group justify-content-center">
+          <div class="form-group">
+            <label class="">&nbsp;</label>
+            <div class="input-group justify-content-center">
+              <button type="submit" class="btn btn-outline-success btn-block w-auto mr-2">
+                ACEPTO
+              </button>
+              <button (click)="dismissForm()" class="btn btn-outline-danger btn-block w-auto">
+                NO ACEPTO
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
 
   </div>
   <div style="height: 1rem;" *ngIf="con2">&nbsp;</div>
+  <div class="test test1" *ngIf="test1" id="test1">
+    <h1 class="mb-5">A continuación se presenta el cuestionario Maslach Burnout Inventory (MBI-Student), que considera
+      las dimensiones de Agotamiento, Actitud negativa, Cinismo y Autoeficacia académica.
+    </h1>
+    <h3 class="mb-5">Estas tres subescalas se puntúan en una escala de frecuencia de 7 puntos, 0=nunca, 1=pocas veces al año, 2=
+      alguna vez en el mes, 3= varias veces en el mes, 4= una vez en la semana, 5=varias veces en la semana, 6=todos los
+      días.
+      Antes de continuar recuerda que todas las afirmaciones deben ser respondidas, no hay respuestas buenas ni malas.
+    </h3>
+
+    <div class="question-box">
+      <div class="question">
+        <p>1. En mi opinión soy buen estudiante.</p>
+      </div>
+      <div class="answer-box">
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q10" name="q1-1" (click)="test11(0)">
+          <label for="q10" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            0
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q11" name="q1-1" (click)="test11(1)">
+          <label for="q11" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            1
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q12" name="q1-1" (click)="test11(2)">
+          <label for="q12" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            2
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q13" name="q1-1" (click)="test11(3)">
+          <label for="q13" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            3
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q14" name="q1-1" (click)="test11(4)">
+          <label for="q14" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            4
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q15" name="q1-1" (click)="test11(5)">
+          <label for="q15" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            5
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q16" name="q1-1" (click)="test11(6)">
+          <label for="q16" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            6
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="question-box">
+      <div class="question">
+        <p>1. En mi opinión soy buen estudiante.</p>
+      </div>
+      <div class="answer-box">
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="large" name="size">
+          <label for="large" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            0
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="large" name="size">
+          <label for="large" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            1
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="large" name="size">
+          <label for="large" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            2
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="large" name="size">
+          <label for="large" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            3
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="large" name="size">
+          <label for="large" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            4
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="large" name="size">
+          <label for="large" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            5
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="large" name="size">
+          <label for="large" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            6
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- <button class="btn btn-outline-primary" (click)="test1Done()">VER</button> -->
+  </div>
+  <div class="dismiss" *ngIf="dismiss">
+    <h1>Gracias por nada</h1>
+  </div>
 </div>
