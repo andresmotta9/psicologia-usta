@@ -418,4 +418,8 @@ export class InfoComponent implements OnInit {
     console.log(this.user);
   }
 
+  private closeTest() {
+    
+  }
+
 }
