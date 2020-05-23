@@ -11,27 +11,29 @@ export class InfoComponent implements OnInit {
   forma: FormGroup;
   formCon: FormGroup;
   formCon2: FormGroup;
-  
-  constructor( private fb: FormBuilder) { 
+
+  constructor(private fb: FormBuilder) {
     this.createForm();
   }
-  intro = false;
+  intro = true;
   personInfo = false;
   con1 = false;
   con2 = false;
   dismiss = false;
-  test1 = true;
-  test2 = true;
+  test1 = false;
+  test2 = false;
   users: any[] = [];
+  question = 0;
   user = {
     nombre: null,
+    apellido: null,
     edad: null,
     genero: null,
     tipoDoc: null,
     numDoc: null,
     codEst: null,
     estrato: null,
-    formPadres:{
+    formPadres: {
       numeroDocumentoEstudiante: null,
       codigoEstudiante: null,
       nombreTestigo: null,
@@ -78,6 +80,9 @@ export class InfoComponent implements OnInit {
 
   get nombreNoValido() {
     return this.forma.get('nombre').invalid && this.forma.get('nombre').touched;
+  }
+  get apellidoNoValido() {
+    return this.forma.get('apellido').invalid && this.forma.get('apellido').touched;
   }
   get edadNoValido() {
     return this.forma.get('edad').invalid && this.forma.get('edad').touched;
@@ -133,15 +138,21 @@ export class InfoComponent implements OnInit {
   get emailEstNoValido() {
     return this.formCon2.get('emailEst').invalid && this.formCon2.get('emailEst').touched;
   }
-  get contacNumEstNoValido () {
+  get contacNumEstNoValido() {
     return this.formCon2.get('contacNumEst').invalid && this.formCon2.get('contacNumEst').touched;
+  }
+
+  private closeModal() {
+    const modal = document.getElementById('modal-test');
+    modal.style.display = 'none';
   }
 
   createForm() {
     this.forma = this.fb.group({
-      nombre: ['', [ Validators.required, Validators.minLength(5)]],
+      nombre: ['', [Validators.required, Validators.minLength(5)]],
+      apellido: ['', [Validators.required, Validators.minLength(5)]],
       edad: ['', [Validators.required, Validators.min(10)]],
-      genero: ['' , Validators.required],
+      genero: ['', Validators.required],
       tipoDoc: ['', Validators.required],
       numDoc: ['', [Validators.required, Validators.min(1000)]],
       codEst: ['', [Validators.required, Validators.min(100)]],
@@ -149,18 +160,18 @@ export class InfoComponent implements OnInit {
     });
 
     this.formCon = this.fb.group({
-      numDoc:  ['', [Validators.required, Validators.min(1000)]],
+      numDoc: ['', [Validators.required, Validators.min(1000)]],
       codEst: ['', [Validators.required, Validators.min(100)]],
-      nombreTestigo: ['', [ Validators.required, Validators.minLength(5)]],
+      nombreTestigo: ['', [Validators.required, Validators.minLength(5)]],
       numDocTestigo: ['', [Validators.required, Validators.min(1000)]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       contacNum: ['', [Validators.required, Validators.min(3000000000)]]
     });
 
     this.formCon2 = this.fb.group({
-      numDocEst:  ['', [Validators.required, Validators.min(1000)]],
+      numDocEst: ['', [Validators.required, Validators.min(1000)]],
       codEstEst: ['', [Validators.required, Validators.min(100)]],
-      nombreTestigoEst: ['', [ Validators.required, Validators.minLength(5)]],
+      nombreTestigoEst: ['', [Validators.required, Validators.minLength(5)]],
       numDocTestigoEst: ['', [Validators.required, Validators.min(1000)]],
       emailEst: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       contacNumEst: ['', [Validators.required, Validators.min(3000000000)]]
@@ -168,10 +179,10 @@ export class InfoComponent implements OnInit {
   }
 
   displayPersonForm() {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     let hideIntro = document.getElementById("intro");
     hideIntro.style.animation = "fadeOut 1s ease-out";
-    setTimeout( () => {
+    setTimeout(() => {
       this.intro = false;
       this.personInfo = true;
       let person = document.getElementById("person");
@@ -179,17 +190,17 @@ export class InfoComponent implements OnInit {
     }, 1000);
   }
 
-  save () {
-    if(this.forma.invalid) {
-      return Object.values( this.forma.controls ).forEach (control => {
+  save() {
+    if (this.forma.invalid) {
+      return Object.values(this.forma.controls).forEach(control => {
         control.markAsTouched();
       });
     } else {
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
       this.setUserData();
       let person = document.getElementById("person");
       person.style.animation = "fadeOut 1s ease-out";
-      setTimeout( () => {
+      setTimeout(() => {
         this.personInfo = false;
         this.showLetter();
       }, 1000);
@@ -197,13 +208,14 @@ export class InfoComponent implements OnInit {
   }
 
   setUserData() {
-    this.user.nombre  = this.forma.get('nombre').value;
-    this.user.edad  = this.forma.get('edad').value;
-    this.user.genero  = this.forma.get('genero').value;
-    this.user.tipoDoc  = this.forma.get('tipoDoc').value;
-    this.user.numDoc  = this.forma.get('numDoc').value;
-    this.user.codEst  = this.forma.get('codEst').value;
-    this.user.estrato  = this.forma.get('estrato').value;
+    this.user.nombre = this.forma.get('nombre').value;
+    this.user.apellido = this.forma.get('apellido').value;
+    this.user.edad = this.forma.get('edad').value;
+    this.user.genero = this.forma.get('genero').value;
+    this.user.tipoDoc = this.forma.get('tipoDoc').value;
+    this.user.numDoc = this.forma.get('numDoc').value;
+    this.user.codEst = this.forma.get('codEst').value;
+    this.user.estrato = this.forma.get('estrato').value;
     console.log(this.user);
   }
 
@@ -226,7 +238,7 @@ export class InfoComponent implements OnInit {
   }
 
   showLetter() {
-    if(this.user.edad >= 18) {
+    if (this.user.edad >= 18) {
       this.con2 = true;
       let con2 = document.getElementById("con2");
       con2.style.animation = "fadeIn 1s ease-out";
@@ -238,18 +250,18 @@ export class InfoComponent implements OnInit {
   }
 
   saveCon() {
-    if(this.formCon.invalid) {
-      return Object.values( this.formCon.controls ).forEach (control => {
+    if (this.formCon.invalid) {
+      return Object.values(this.formCon.controls).forEach(control => {
         control.markAsTouched();
       });
     } else {
       this.setFormParents();
       let con1 = document.getElementById("con1");
       con1.style.animation = "fadeOut 1s ease-out";
-      setTimeout( () => {
+      setTimeout(() => {
         this.con1 = false;
         this.con2 = true;
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
         let con22 = document.getElementById("con2");
         console.log(con22)
         con22.style.animation = "fadeIn 1s ease-out 1s";
@@ -257,8 +269,8 @@ export class InfoComponent implements OnInit {
     }
   }
   saveCon2() {
-    if(this.formCon2.invalid) {
-      return Object.values( this.formCon2.controls ).forEach (control => {
+    if (this.formCon2.invalid) {
+      return Object.values(this.formCon2.controls).forEach(control => {
         control.markAsTouched();
       });
     } else {
@@ -266,10 +278,10 @@ export class InfoComponent implements OnInit {
       console.log(this.user);
       let con2 = document.getElementById("con2");
       con2.style.animation = "fadeOut 1s ease-out";
-      setTimeout( () => {
+      setTimeout(() => {
         this.con2 = false;
         this.test1 = true;
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
         let test1 = document.getElementById("test1");
         test1.style.animation = "fadeIn 1s ease-out 1s";
       }, 1000);
@@ -279,11 +291,11 @@ export class InfoComponent implements OnInit {
   dismissForm(con) {
     let con2 = document.getElementById(con);
     con2.style.animation = "fadeOut 1s ease-out";
-    setTimeout( () => {
+    setTimeout(() => {
       this.con1 = false;
       this.con2 = false;
       this.dismiss = true;
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
       let dismiss = document.getElementById("dismiss");
       dismiss.style.animation = "fadeIn 1s ease-out 1s";
     }, 1000);
@@ -351,11 +363,59 @@ export class InfoComponent implements OnInit {
   }
 
   test1Done() {
-    console.log(this.user)
+    let complete = true;
+    // tslint:disable-next-line: forin
+    for (const question in this.user.cuestionario1) {
+      console.log(this.user.cuestionario1[question]);
+      if (this.user.cuestionario1[question] === null) {
+        this.question = parseInt(question.split("p")[1]);
+        complete = false;
+      }
+    }
+
+    if (complete) {
+      let test1 = document.getElementById("test1");
+      test1.style.animation = "fadeOut 1s ease-out";
+      this.test2 = true;
+      setTimeout(() => {
+        this.test1 = false;
+        window.scrollTo(0, 0);
+        let dismiss = document.getElementById("test2");
+        dismiss.style.animation = "fadeIn 1s ease-out";
+        dismiss.style.opacity = "1";
+      }, 500);
+    } else {
+      const modal = document.getElementById('modal-test');
+      modal.style.display = 'block';
+    }
   }
 
   test2Done() {
-    console.log(this.user)
+    let complete = true;
+    // tslint:disable-next-line: forin
+    for (const question in this.user.cuestionario2) {
+      console.log(this.user.cuestionario2[question]);
+      if (this.user.cuestionario2[question] === null) {
+        this.question = parseInt(question.split("p")[1]);
+        complete = false;
+      }
+    }
+    if (complete) {
+      const test2 = document.getElementById('test2');
+      test2.style.animation = 'fadeOut 1s ease-out';
+      // this.final = true;
+      setTimeout(() => {
+        this.test2 = false;
+        window.scrollTo(0, 0);
+        // let dismiss = document.getElementById("test2");
+        // dismiss.style.animation = "fadeIn 1s ease-out";
+        // dismiss.style.opacity = "1";
+      }, 500);
+    } else {
+      const modal = document.getElementById('modal-test');
+      modal.style.display = 'block';
+    }
+    console.log(this.user);
   }
- 
+
 }

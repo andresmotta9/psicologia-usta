@@ -17,11 +17,11 @@
     <h2 class="my-3">Director:</h2>
     <p class="autoras">Javier Vicente Giraldo Jaramillo</p>
 
-    <p class="intro--description">En la presente página web, encontrarás los consentimientos informados y cuestionarios
-      necesarios para hacer parte de la presente investigación, agradecemos mucho tu tiempo y colaboración, tu
-      participación es muy importante para nosotros. Recuerda leer muy bien antes de avanzar, la totalidad de la
-      participación no te llevará mas de una hora. A continuación tendrás la opción de aceptar o no aceptar, libremente
-      tu participación</p>
+    <p class="intro--description">En la presente página web, encontrará los consentimientos informados y cuestionarios
+      necesarios para hacer parte de la presente investigación, agradecemos mucho su tiempo y colaboración, su
+      participación es muy importante para nosotros. Recuerde leer muy bien antes de avanzar, la totalidad de la
+      participación no le llevará mas de 20 minutos. A continuación tendrá la opción de aceptar o no aceptar, libremente
+      su participación.</p>
     <button class="btn btn--green" (click)="displayPersonForm()">Siguiente &rarr;</button>
   </div>
   <div class="person" id="person" *ngIf="personInfo">
@@ -34,10 +34,22 @@
               <input type="text" class="form-control" placeholder="Nombre Completo" formControlName="nombre"
                 [class.is-invalid]="nombreNoValido">
               <small *ngIf="nombreNoValido" class="text-danger">
-                Ingrese 5 caracteres como mínimo
+                Ingrese su nombre completo
               </small>
             </div>
           </div>
+          <div class="form-group">
+            <label for="" class="">Apellido Completo</label>
+            <div class="input-container">
+              <input type="text" class="form-control" placeholder="Apellido Completo" formControlName="apellido"
+                [class.is-invalid]="apellidoNoValido">
+              <small *ngIf="apellidoNoValido" class="text-danger">
+                Ingrese su apellido completo
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="group">
           <div class="form-group">
             <label for="" class="">Edad</label>
             <div class="input-container">
@@ -48,9 +60,6 @@
               </small>
             </div>
           </div>
-
-        </div>
-        <div class="group">
           <div class="form-group">
             <label for="gender" class="">Género</label>
             <div class="input-container">
@@ -65,6 +74,8 @@
               </small>
             </div>
           </div>
+        </div>
+        <div class="group">
           <div class="form-group row">
             <label for="tipoDoc" class="">Tipo de documento de identificación</label>
             <div class="input-container">
@@ -78,8 +89,6 @@
               </small>
             </div>
           </div>
-        </div>
-        <div class="group">
           <div class="form-group">
             <label for="numDoc" class="">Número de documento de identificación</label>
             <div class="input-container">
@@ -90,6 +99,8 @@
               </small>
             </div>
           </div>
+        </div>
+        <div class="group">
           <div class="form-group row">
             <label for="codEst" class="col2 col-form-label">Código estudiantil</label>
             <div class="input-container">
@@ -100,8 +111,6 @@
               </small>
             </div>
           </div>
-        </div>
-        <div class="group">
           <div class="form-group row">
             <label for="estrato" class="">Estrato socioeconómico</label>
             <div class="input-container">
@@ -119,14 +128,11 @@
               </small>
             </div>
           </div>
-          <div class="form-group">
-            <label class="">&nbsp;</label>
-            <div class="input-group input-group-person">
-              <button type="submit" class="btn btn-outline-primary btn-block">
-                Guardar
-              </button>
-            </div>
-          </div>
+        </div>
+        <div class="input-group input-group-person">
+          <button type="submit" class="btn btn-outline-primary btn-block">
+            Guardar
+          </button>
         </div>
       </div>
 
@@ -1415,8 +1421,9 @@
       </div>
     </div>
     <button class="btn btn-success" (click)="test1Done()">SIGUIENTE</button>
+    
 
-    {{user.cuestionario1 | json}}
+    <!-- {{user.cuestionario1 | json}}  -->
   </div>
   <div class="test test2" *ngIf="test2" id="test2">
     <h1 class="mb-5">A continuación se evaluará La percepción del funcionamiento familiar se indaga por medio del
@@ -1571,9 +1578,29 @@
     </div>
     <button class="btn btn-success" (click)="test2Done()">SIGUIENTE</button>
 
-    {{user.cuestionario2 | json}}
+    <!-- {{user.cuestionario2 | json}} -->
   </div>
   <div class="dismiss" *ngIf="dismiss">
-    <h1>Gracias por nada</h1>
+    <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">Well done!</h4>
+      <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+      <hr>
+      <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+    </div>    
+  </div>
+  <div class="modal-test" id="modal-test" (click)="closeModal()">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="material-icons error" style="color:red;">
+          error_outline
+          </span>
+          <span class="material-icons close" id="close" (click)="closeModal()">
+            clear
+            </span>
+      </div>
+      <div class="modal-body">
+        Por favor responda la pregunta {{question}}
+      </div>
+    </div>
   </div>
 </div>
