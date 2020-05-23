@@ -567,11 +567,11 @@
     <h1 class="mb-5">A continuación se presenta el cuestionario Maslach Burnout Inventory (MBI-Student), que considera
       las dimensiones de Agotamiento, Actitud negativa, Cinismo y Autoeficacia académica.
     </h1>
-    <h3 class="mb-5">Estas tres subescalas se puntúan en una escala de frecuencia de 7 puntos, 0=nunca, 1=pocas veces al año, 2=
+    <h2 class="mb-5 text-justify">Estas tres subescalas se puntúan en una escala de frecuencia de 7 puntos, 0=nunca, 1=pocas veces al año, 2=
       alguna vez en el mes, 3= varias veces en el mes, 4= una vez en la semana, 5=varias veces en la semana, 6=todos los
       días.
       Antes de continuar recuerda que todas las afirmaciones deben ser respondidas, no hay respuestas buenas ni malas.
-    </h3>
+    </h2>
 
     <div class="question-box">
       <div class="question mb-4 mb-md-0">
@@ -630,55 +630,447 @@
       </div>
     </div>
     <div class="question-box">
-      <div class="question">
-        <p>1. En mi opinión soy buen estudiante.</p>
+      <div class="question mb-4 mb-md-0">
+        <p>2. Creo que contribuyó efectivamente con las clases en la universidad</p>
       </div>
-      <div class="answer-box">
+      <div class="answer-box mb-3 mb-md-0">
         <div class="answer">
-          <input type="radio" class="form__radio-input" id="large" name="size">
-          <label for="large" class="form__radio-label">
+          <input type="radio" class="form__radio-input" id="q20" name="q1-2" (click)="test12(0)">
+          <label for="q20" class="form__radio-label">
             <span class="form__radio-button"></span>
             0
           </label>
         </div>
         <div class="answer">
-          <input type="radio" class="form__radio-input" id="large" name="size">
-          <label for="large" class="form__radio-label">
+          <input type="radio" class="form__radio-input" id="q21" name="q1-2" (click)="test12(1)">
+          <label for="q21" class="form__radio-label">
             <span class="form__radio-button"></span>
             1
           </label>
         </div>
         <div class="answer">
-          <input type="radio" class="form__radio-input" id="large" name="size">
-          <label for="large" class="form__radio-label">
+          <input type="radio" class="form__radio-input" id="q22" name="q1-2" (click)="test12(2)">
+          <label for="q22" class="form__radio-label">
             <span class="form__radio-button"></span>
             2
           </label>
         </div>
         <div class="answer">
-          <input type="radio" class="form__radio-input" id="large" name="size">
-          <label for="large" class="form__radio-label">
+          <input type="radio" class="form__radio-input" id="q23" name="q1-2" (click)="test12(3)">
+          <label for="q23" class="form__radio-label">
             <span class="form__radio-button"></span>
             3
           </label>
         </div>
         <div class="answer">
-          <input type="radio" class="form__radio-input" id="large" name="size">
-          <label for="large" class="form__radio-label">
+          <input type="radio" class="form__radio-input" id="q24" name="q1-2" (click)="test12(4)">
+          <label for="q24" class="form__radio-label">
             <span class="form__radio-button"></span>
             4
           </label>
         </div>
         <div class="answer">
-          <input type="radio" class="form__radio-input" id="large" name="size">
-          <label for="large" class="form__radio-label">
+          <input type="radio" class="form__radio-input" id="q25" name="q1-2" (click)="test12(5)">
+          <label for="q25" class="form__radio-label">
             <span class="form__radio-button"></span>
             5
           </label>
         </div>
         <div class="answer">
-          <input type="radio" class="form__radio-input" id="large" name="size">
-          <label for="large" class="form__radio-label">
+          <input type="radio" class="form__radio-input" id="q26" name="q1-2" (click)="test12(6)">
+          <label for="q26" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            6
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="question-box">
+      <div class="question mb-4 mb-md-0">
+        <p>3. Durante las clases tengo la seguridad de que soy eficaz en la finalización de la cosas.</p>
+      </div>
+      <div class="answer-box mb-3 mb-md-0">
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q30" name="q1-3" (click)="test13(0)">
+          <label for="q30" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            0
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q31" name="q1-3" (click)="test13(1)">
+          <label for="q31" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            1
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q32" name="q1-3" (click)="test13(2)">
+          <label for="q32" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            2
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q33" name="q1-3" (click)="test13(3)">
+          <label for="q33" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            3
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q34" name="q1-3" (click)="test13(4)">
+          <label for="q34" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            4
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q35" name="q1-3" (click)="test13(5)">
+          <label for="q35" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            5
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q36" name="q1-3" (click)="test13(6)">
+          <label for="q36" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            6
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="question-box">
+      <div class="question mb-4 mb-md-0">
+        <p>4. Puedo resolver de manera eficaz los problemas relacionados con mis estudios</p>
+      </div>
+      <div class="answer-box mb-3 mb-md-0">
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q40" name="q1-4" (click)="test14(0)">
+          <label for="q40" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            0
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q41" name="q1-4" (click)="test14(1)">
+          <label for="q41" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            1
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q42" name="q1-4" (click)="test14(2)">
+          <label for="q42" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            2
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q43" name="q1-4" (click)="test14(3)">
+          <label for="q43" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            3
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q44" name="q1-4" (click)="test14(4)">
+          <label for="q44" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            4
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q45" name="q1-4" (click)="test14(5)">
+          <label for="q45" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            5
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q46" name="q1-4" (click)="test14(6)">
+          <label for="q46" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            6
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="question-box">
+      <div class="question mb-4 mb-md-0">
+        <p>5. me estimula conseguir objetivos en mis estudios</p>
+      </div>
+      <div class="answer-box mb-3 mb-md-0">
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q50" name="q1-5" (click)="test15(0)">
+          <label for="q50" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            0
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q51" name="q1-5" (click)="test15(1)">
+          <label for="q51" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            1
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q52" name="q1-5" (click)="test15(2)">
+          <label for="q52" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            2
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q53" name="q1-5" (click)="test15(3)">
+          <label for="q53" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            3
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q54" name="q1-5" (click)="test15(4)">
+          <label for="q54" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            4
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q55" name="q1-5" (click)="test15(5)">
+          <label for="q55" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            5
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q56" name="q1-5" (click)="test15(6)">
+          <label for="q56" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            6
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="question-box">
+      <div class="question mb-4 mb-md-0">
+        <p>6. Me encuentro agotado físicamente al final de un día de la universidad </p>
+      </div>
+      <div class="answer-box mb-3 mb-md-0">
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q60" name="q1-6" (click)="test16(0)">
+          <label for="q60" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            0
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q61" name="q1-6" (click)="test16(1)">
+          <label for="q61" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            1
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q62" name="q1-6" (click)="test16(2)">
+          <label for="q62" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            2
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q63" name="q1-6" (click)="test16(3)">
+          <label for="q63" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            3
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q64" name="q1-6" (click)="test16(4)">
+          <label for="q64" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            4
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q65" name="q1-6" (click)="test16(5)">
+          <label for="q65" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            5
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q66" name="q1-6" (click)="test16(6)">
+          <label for="q66" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            6
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="question-box">
+      <div class="question mb-4 mb-md-0">
+        <p>7. Estoy exhausto de tanto estudiar</p>
+      </div>
+      <div class="answer-box mb-3 mb-md-0">
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q70" name="q1-7" (click)="test17(0)">
+          <label for="q70" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            0
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q71" name="q1-7" (click)="test17(1)">
+          <label for="q71" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            1
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q72" name="q1-7" (click)="test17(2)">
+          <label for="q72" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            2
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q73" name="q1-7" (click)="test17(3)">
+          <label for="q73" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            3
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q74" name="q1-7" (click)="test17(4)">
+          <label for="q74" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            4
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q75" name="q1-7" (click)="test17(5)">
+          <label for="q75" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            5
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q76" name="q1-7" (click)="test17(6)">
+          <label for="q76" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            6
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="question-box">
+      <div class="question mb-4 mb-md-0">
+        <p>8. Estoy cansado en la mañana cuando me levanto y tengo que afrontar otro día de la universidad</p>
+      </div>
+      <div class="answer-box mb-3 mb-md-0">
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q80" name="q1-8" (click)="test18(0)">
+          <label for="q80" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            0
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q81" name="q1-8" (click)="test18(1)">
+          <label for="q81" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            1
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q82" name="q1-8" (click)="test18(2)">
+          <label for="q82" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            2
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q83" name="q1-8" (click)="test18(3)">
+          <label for="q83" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            3
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q84" name="q1-8" (click)="test18(4)">
+          <label for="q84" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            4
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q85" name="q1-8" (click)="test18(5)">
+          <label for="q85" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            5
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q86" name="q1-8" (click)="test18(6)">
+          <label for="q86" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            6
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="question-box">
+      <div class="question mb-4 mb-md-0">
+        <p>9. las actividades académicas de esta carrera me tienen emocionalmente agotado</p>
+      </div>
+      <div class="answer-box mb-3 mb-md-0">
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q90" name="q1-9" (click)="test19(0)">
+          <label for="q90" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            0
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q91" name="q1-9" (click)="test19(1)">
+          <label for="q91" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            1
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q92" name="q1-9" (click)="test19(2)">
+          <label for="q92" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            2
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q93" name="q1-9" (click)="test19(3)">
+          <label for="q93" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            3
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q94" name="q1-9" (click)="test19(4)">
+          <label for="q94" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            4
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q95" name="q1-9" (click)="test19(5)">
+          <label for="q95" class="form__radio-label">
+            <span class="form__radio-button"></span>
+            5
+          </label>
+        </div>
+        <div class="answer">
+          <input type="radio" class="form__radio-input" id="q96" name="q1-9" (click)="test19(6)">
+          <label for="q96" class="form__radio-label">
             <span class="form__radio-button"></span>
             6
           </label>

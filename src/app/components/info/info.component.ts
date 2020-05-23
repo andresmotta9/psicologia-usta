@@ -15,12 +15,12 @@ export class InfoComponent implements OnInit {
   constructor( private fb: FormBuilder) { 
     this.createForm();
   }
-  intro = true;
+  intro = false;
   personInfo = false;
   con1 = false;
   con2 = false;
   dismiss = false;
-  test1 = false;
+  test1 = true;
   users: any[] = [];
   user = {
     nombre: null,

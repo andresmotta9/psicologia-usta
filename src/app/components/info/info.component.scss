@@ -478,7 +478,7 @@ body {
 .test {
     width: 90%;
     margin: 5rem auto;
-    h1, h3 {
+    h1, h3, h2 {
         color: $color-black;
     }
     
@@ -494,10 +494,17 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
         @include respond(phone) {
             width: 100%;
             flex-direction: column;
-            text-align: center;
+            text-align: left;
+        }
+        .question {
+            padding-right: 1.5rem;
+            @include respond(phone) {
+                padding-right: 0;
+            }
         }
         .answer-box {
             display: flex;
