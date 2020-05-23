@@ -391,6 +391,7 @@ body {
 
 .group {
     display: flex;
+
     @include respond(phone) {
         flex-direction: column;
     }
@@ -419,6 +420,7 @@ body {
     align-items: center;
     margin-bottom: 1.5rem;
     width: 50%;
+
     @include respond(phone) {
         align-items: flex-start;
         width: 100%;
@@ -466,10 +468,13 @@ body {
         display: block;
         text-align: center;
     }
+
     .email {
         font-weight: 900;
         font-size: 2rem;
-        &::-webkit-input-placeholder, &::placeholder {
+
+        &::-webkit-input-placeholder,
+        &::placeholder {
             font-size: 1.5rem;
         }
     }
@@ -478,10 +483,15 @@ body {
 .test {
     width: 90%;
     margin: 5rem auto;
-    h1, h3, h2 {
+    display: flex;
+    flex-direction: column;
+
+    h1,
+    h3,
+    h2 {
         color: $color-black;
     }
-    
+
     h1 {
         text-align: center;
     }
@@ -490,27 +500,32 @@ body {
         width: 80%;
         margin: 0 auto;
         margin-top: 1.5rem;
-        border-bottom: 1px solid rgba(0,0,0,0.5);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
         @include respond(phone) {
             width: 100%;
             flex-direction: column;
             align-items: inherit;
             text-align: left;
         }
+
         .question {
             padding-right: 1.5rem;
+
             @include respond(phone) {
                 padding-right: 0;
             }
         }
+
         .answer-box {
             display: flex;
             flex-direction: row;
             justify-content: center;
+
             .answer {
                 &:not(:last-child) {
                     margin-right: 2rem;
@@ -519,16 +534,18 @@ body {
                 .form__radio-input {
                     display: none;
                 }
-        
+
                 .form__radio-label {
                     font-size: $default-font-size;
                     cursor: pointer;
                     position: relative;
                     padding-right: 2.5rem;
+
                     @include respond(phone) {
                         font-size: 2.3rem;
                     }
                 }
+
                 .form__radio-button {
                     height: 2rem;
                     width: 2rem;
@@ -539,13 +556,13 @@ body {
                     right: 0;
                     top: .2rem;
 
-                    @include respond(phone) { 
+                    @include respond(phone) {
                         height: 2.5rem;
                         width: 2.5rem;
                         right: -4px;
                         top: 0.6rem;
                     }
-            
+
                     &::after {
                         content: "";
                         display: block;
@@ -561,24 +578,29 @@ body {
                         transition: opacity .2s;
                     }
                 }
-                .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+
+                .form__radio-input:checked~.form__radio-label .form__radio-button::after {
                     opacity: 1;
                 }
             }
 
-            }
-            // width: 49%;
-            // display: inline-block;
-            // @include respond(tab-port) {
-            //     width: 100%;
-            //     margin-bottom: 2rem;
-            
         }
 
-        
+    }
+
 
     p {
         font-size: 2rem;
+    }
+
+    .btn-success {
+        margin-top: 2rem;
+        align-self: flex-end;
+        margin-right: 10%;
+
+        @include respond(phone) {
+            align-self: center;
+        }
     }
 }
 
@@ -669,9 +691,11 @@ body {
         animation-fill-mode: backwards;
     }
 }
+
 .btn-outline-success {
     border: 1px solid rgb(40, 167, 69);
 }
+
 .btn-outline-danger {
     border: 1px solid rgb(220, 53, 69);
 }

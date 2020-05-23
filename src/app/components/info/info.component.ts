@@ -21,6 +21,7 @@ export class InfoComponent implements OnInit {
   con2 = false;
   dismiss = false;
   test1 = true;
+  test2 = true;
   users: any[] = [];
   user = {
     nombre: null,
@@ -62,6 +63,13 @@ export class InfoComponent implements OnInit {
       p13: null,
       p14: null,
       p15: null
+    },
+    cuestionario2: {
+      p1: null,
+      p2: null,
+      p3: null,
+      p4: null,
+      p5: null
     }
   };
 
@@ -308,7 +316,7 @@ export class InfoComponent implements OnInit {
   test19(value) {
     this.user.cuestionario1.p9 = value;
   }
-  test10(value) {
+  test110(value) {
     this.user.cuestionario1.p10 = value;
   }
   test111(value) {
@@ -326,8 +334,27 @@ export class InfoComponent implements OnInit {
   test115(value) {
     this.user.cuestionario1.p15 = value;
   }
+  test21(value) {
+    this.user.cuestionario2.p1 = value;
+  }
+  test22(value) {
+    this.user.cuestionario2.p2 = value;
+  }
+  test23(value) {
+    this.user.cuestionario2.p3 = value;
+  }
+  test24(value) {
+    this.user.cuestionario2.p4 = value;
+  }
+  test25(value) {
+    this.user.cuestionario2.p5 = value;
+  }
 
   test1Done() {
+    console.log(this.user)
+  }
+
+  test2Done() {
     console.log(this.user)
   }
  
