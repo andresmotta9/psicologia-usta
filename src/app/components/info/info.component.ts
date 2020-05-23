@@ -142,7 +142,7 @@ export class InfoComponent implements OnInit {
     return this.formCon2.get('contacNumEst').invalid && this.formCon2.get('contacNumEst').touched;
   }
 
-  private closeModal() {
+  public closeModal() {
     const modal = document.getElementById('modal-test');
     modal.style.display = 'none';
   }
@@ -419,7 +419,7 @@ export class InfoComponent implements OnInit {
   }
 
   private closeTest() {
-    
+
   }
 
 }
