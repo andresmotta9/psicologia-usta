@@ -330,7 +330,7 @@
               <button type="submit" class="btn btn-outline-success btn-block w-auto mr-2">
                 ACEPTO
               </button>
-              <button (click)="dismissForm()" class="btn btn-outline-danger btn-block w-auto">
+              <button (click)="dismissForm('con1')" class="btn btn-outline-danger btn-block w-auto">
                 NO ACEPTO
               </button>
             </div>
@@ -552,7 +552,7 @@
               <button type="submit" class="btn btn-outline-success btn-block w-auto mr-2">
                 ACEPTO
               </button>
-              <button (click)="dismissForm()" class="btn btn-outline-danger btn-block w-auto">
+              <button (click)="dismissForm('con2')" class="btn btn-outline-danger btn-block w-auto">
                 NO ACEPTO
               </button>
             </div>
@@ -574,10 +574,10 @@
     </h3>
 
     <div class="question-box">
-      <div class="question">
+      <div class="question mb-4 mb-md-0">
         <p>1. En mi opinión soy buen estudiante.</p>
       </div>
-      <div class="answer-box">
+      <div class="answer-box mb-3 mb-md-0">
         <div class="answer">
           <input type="radio" class="form__radio-input" id="q10" name="q1-1" (click)="test11(0)">
           <label for="q10" class="form__radio-label">

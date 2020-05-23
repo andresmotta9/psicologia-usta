@@ -15,12 +15,12 @@ export class InfoComponent implements OnInit {
   constructor( private fb: FormBuilder) { 
     this.createForm();
   }
-  intro = false;
+  intro = true;
   personInfo = false;
   con1 = false;
   con2 = false;
   dismiss = false;
-  test1 = true;
+  test1 = false;
   users: any[] = [];
   user = {
     nombre: null,
@@ -268,8 +268,17 @@ export class InfoComponent implements OnInit {
     }
   }
 
-  dismissForm() {
-    alert('hols')
+  dismissForm(con) {
+    let con2 = document.getElementById(con);
+    con2.style.animation = "fadeOut 1s ease-out";
+    setTimeout( () => {
+      this.con1 = false;
+      this.con2 = false;
+      this.dismiss = true;
+      window.scrollTo(0,0);
+      let dismiss = document.getElementById("dismiss");
+      dismiss.style.animation = "fadeIn 1s ease-out 1s";
+    }, 1000);
   }
 
   test11(value) {
