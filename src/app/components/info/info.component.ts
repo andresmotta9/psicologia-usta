@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './info.component.html',
   styleUrls: ['./info.component.scss']
 })
-export class InfoComponent implements OnInit {
+export class InfoComponent implements OnInit, AfterContentInit {
 
   forma: FormGroup;
   formCon: FormGroup;
@@ -15,6 +15,7 @@ export class InfoComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.createForm();
   }
+
   intro = true;
   personInfo = false;
   con1 = false;
@@ -76,6 +77,9 @@ export class InfoComponent implements OnInit {
   };
 
   ngOnInit(): void {
+
+  }
+  ngAfterContentInit(): void {
   }
 
   get nombreNoValido() {
@@ -142,11 +146,6 @@ export class InfoComponent implements OnInit {
     return this.formCon2.get('contacNumEst').invalid && this.formCon2.get('contacNumEst').touched;
   }
 
-  public closeModal() {
-    const modal = document.getElementById('modal-test');
-    modal.style.display = 'none';
-  }
-
   createForm() {
     this.forma = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(5)]],
@@ -178,32 +177,34 @@ export class InfoComponent implements OnInit {
     })
   }
 
-  displayPersonForm() {
-    window.scrollTo(0, 0);
-    let hideIntro = document.getElementById("intro");
-    hideIntro.style.animation = "fadeOut 1s ease-out";
+  public displayPersonForm() {
+    const hideIntro = document.getElementById('intro');
+    hideIntro.style.animation = 'fadeOut 1s ease-out';
     setTimeout(() => {
-      this.intro = false;
       this.personInfo = true;
-      let person = document.getElementById("person");
-      person.style.animation = "fadeIn 1s ease-out";
-    }, 1000);
+      this.intro = false;
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        const person = document.getElementById('person');
+        person.style.animation = 'fadeIn 1s ease-out';
+        person.style.opacity = '1';
+      }, 100);
+    }, 500);
   }
 
-  save() {
+  public save() {
     if (this.forma.invalid) {
       return Object.values(this.forma.controls).forEach(control => {
         control.markAsTouched();
       });
     } else {
-      window.scrollTo(0, 0);
       this.setUserData();
-      let person = document.getElementById("person");
-      person.style.animation = "fadeOut 1s ease-out";
+      const person = document.getElementById('person');
+      person.style.animation = 'fadeOut 1s ease-out';
       setTimeout(() => {
-        this.personInfo = false;
+        window.scrollTo(0, 0);
         this.showLetter();
-      }, 1000);
+      }, 500);
     }
   }
 
@@ -216,7 +217,6 @@ export class InfoComponent implements OnInit {
     this.user.numDoc = this.forma.get('numDoc').value;
     this.user.codEst = this.forma.get('codEst').value;
     this.user.estrato = this.forma.get('estrato').value;
-    console.log(this.user);
   }
 
   setFormParents() {
@@ -237,68 +237,152 @@ export class InfoComponent implements OnInit {
     this.user.formEstudiante.contacNum = this.formCon2.get('contacNumEst').value;
   }
 
-  showLetter() {
+  public showLetter() {
     if (this.user.edad >= 18) {
       this.con2 = true;
-      let con2 = document.getElementById("con2");
-      con2.style.animation = "fadeIn 1s ease-out";
+      this.personInfo = false;
+      setTimeout(() => {
+        const con2 = document.getElementById('con2');
+        con2.style.animation = 'fadeIn 1s ease-out';
+        con2.style.opacity = '1';
+      }, 100);
     } else {
       this.con1 = true;
-      let con1 = document.getElementById("con1");
-      con1.style.animation = "fadeIn 1s ease-out";
+      this.personInfo = false;
+      setTimeout(() => {
+        const con1 = document.getElementById('con1');
+        con1.style.animation = 'fadeIn 1s ease-out';
+        con1.style.opacity = '1';
+      }, 100);
     }
   }
 
-  saveCon() {
+  public saveCon() {
     if (this.formCon.invalid) {
       return Object.values(this.formCon.controls).forEach(control => {
         control.markAsTouched();
       });
     } else {
       this.setFormParents();
-      let con1 = document.getElementById("con1");
-      con1.style.animation = "fadeOut 1s ease-out";
+      const con1 = document.getElementById('con1');
+      con1.style.animation = 'fadeOut 1s ease-out';
       setTimeout(() => {
-        this.con1 = false;
         this.con2 = true;
+        this.con1 = false;
         window.scrollTo(0, 0);
-        let con22 = document.getElementById("con2");
-        console.log(con22)
-        con22.style.animation = "fadeIn 1s ease-out 1s";
-      }, 1000);
+        setTimeout(() => {
+          const con2 = document.getElementById('con2');
+          con2.style.animation = 'fadeIn 1s ease-out';
+          con2.style.opacity = '1';
+        }, 100);
+      }, 500);
     }
   }
-  saveCon2() {
+  public saveCon2() {
     if (this.formCon2.invalid) {
       return Object.values(this.formCon2.controls).forEach(control => {
         control.markAsTouched();
       });
     } else {
       this.setFormEstudent();
-      console.log(this.user);
-      let con2 = document.getElementById("con2");
-      con2.style.animation = "fadeOut 1s ease-out";
+      const con2 = document.getElementById('con2');
+      con2.style.animation = 'fadeOut 1s ease-out';
       setTimeout(() => {
-        this.con2 = false;
         this.test1 = true;
+        this.con2 = false;
         window.scrollTo(0, 0);
-        let test1 = document.getElementById("test1");
-        test1.style.animation = "fadeIn 1s ease-out 1s";
-      }, 1000);
+        setTimeout(() => {
+          const test1 = document.getElementById('test1');
+          test1.style.animation = 'fadeIn 1s ease-out';
+          test1.style.opacity = '1';
+        }, 100);
+      }, 500);
     }
   }
 
-  dismissForm(con) {
-    let con2 = document.getElementById(con);
-    con2.style.animation = "fadeOut 1s ease-out";
+  public dismissForm(con) {
+    const actualCon = document.getElementById(con);
+    actualCon.style.animation = 'fadeOut 1s ease-out';
+    this.intro = true;
     setTimeout(() => {
       this.con1 = false;
       this.con2 = false;
-      this.dismiss = true;
       window.scrollTo(0, 0);
-      let dismiss = document.getElementById("dismiss");
-      dismiss.style.animation = "fadeIn 1s ease-out 1s";
-    }, 1000);
+      const intro = document.getElementById('intro');
+      intro.style.animation = 'fadeIn 1s ease-out';
+      intro.style.opacity = '1';
+      const modal = document.getElementById('modal-done');
+      modal.style.display = 'block';
+    }, 500);
+  }
+
+  public test1Done() {
+    let complete = true;
+    // tslint:disable-next-line: forin
+    for (const question in this.user.cuestionario1) {
+      if (this.user.cuestionario1[question] === null) {
+        this.question = parseInt(question.split("p")[1]);
+        complete = false;
+      }
+    }
+
+    if (complete) {
+      const test1 = document.getElementById('test1');
+      test1.style.animation = 'fadeOut 1s ease-out';
+      setTimeout(() => {
+        this.test2 = true;
+        this.test1 = false;
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+          const dismiss = document.getElementById('test2');
+          dismiss.style.animation = 'fadeIn 1s ease-out';
+          dismiss.style.opacity = '1';
+        }, 100);
+      }, 500);
+    } else {
+      const modal = document.getElementById('modal-test');
+      modal.style.display = 'block';
+    }
+  }
+
+  public test2Done() {
+    let complete = true;
+    // tslint:disable-next-line: forin
+    for (const question in this.user.cuestionario2) {
+      if (this.user.cuestionario2[question] === null) {
+        this.question = parseInt(question.split("p")[1]);
+        complete = false;
+      }
+    }
+    if (complete) {
+      const test2 = document.getElementById('test2');
+      test2.style.animation = 'fadeOut 1s ease-out';
+      this.intro = true;
+      setTimeout(() => {
+        this.test2 = false;
+        window.scrollTo(0, 0);
+        const intro = document.getElementById('intro');
+        intro.style.animation = 'fadeIn 1s ease-out';
+        intro.style.opacity = '1';
+        const modal = document.getElementById('modal-done');
+        modal.style.display = 'block';
+      }, 500);
+    } else {
+      const modal = document.getElementById('modal-test');
+      modal.style.display = 'block';
+    }
+  }
+
+  public closeTest() {
+    const modal = document.getElementById('modal-done');
+    modal.style.display = 'none';
+    this.clearUser();
+  }
+
+  public closeModal() {
+    const modal = document.getElementById('modal-test');
+    modal.style.display = 'none';
+    this.clearUser();
   }
 
   test11(value) {
@@ -362,64 +446,10 @@ export class InfoComponent implements OnInit {
     this.user.cuestionario2.p5 = value;
   }
 
-  test1Done() {
-    let complete = true;
-    // tslint:disable-next-line: forin
-    for (const question in this.user.cuestionario1) {
-      console.log(this.user.cuestionario1[question]);
-      if (this.user.cuestionario1[question] === null) {
-        this.question = parseInt(question.split("p")[1]);
-        complete = false;
-      }
-    }
-
-    if (complete) {
-      let test1 = document.getElementById("test1");
-      test1.style.animation = "fadeOut 1s ease-out";
-      this.test2 = true;
-      setTimeout(() => {
-        this.test1 = false;
-        window.scrollTo(0, 0);
-        let dismiss = document.getElementById("test2");
-        dismiss.style.animation = "fadeIn 1s ease-out";
-        dismiss.style.opacity = "1";
-      }, 500);
-    } else {
-      const modal = document.getElementById('modal-test');
-      modal.style.display = 'block';
-    }
-  }
-
-  test2Done() {
-    let complete = true;
-    // tslint:disable-next-line: forin
-    for (const question in this.user.cuestionario2) {
-      console.log(this.user.cuestionario2[question]);
-      if (this.user.cuestionario2[question] === null) {
-        this.question = parseInt(question.split("p")[1]);
-        complete = false;
-      }
-    }
-    if (complete) {
-      const test2 = document.getElementById('test2');
-      test2.style.animation = 'fadeOut 1s ease-out';
-      // this.final = true;
-      setTimeout(() => {
-        this.test2 = false;
-        window.scrollTo(0, 0);
-        // let dismiss = document.getElementById("test2");
-        // dismiss.style.animation = "fadeIn 1s ease-out";
-        // dismiss.style.opacity = "1";
-      }, 500);
-    } else {
-      const modal = document.getElementById('modal-test');
-      modal.style.display = 'block';
-    }
-    console.log(this.user);
-  }
-
-  private closeTest() {
-
+  private clearUser() {
+    this.forma.reset();
+    this.formCon.reset();
+    this.formCon2.reset();
   }
 
 }
