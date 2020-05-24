@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from "@angular/common/http";
+import { Observable, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-info',
@@ -12,7 +14,7 @@ export class InfoComponent implements OnInit, AfterContentInit {
   formCon: FormGroup;
   formCon2: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.createForm();
   }
 
@@ -355,6 +357,7 @@ export class InfoComponent implements OnInit, AfterContentInit {
       }
     }
     if (complete) {
+      this.saveData();
       const test2 = document.getElementById('test2');
       test2.style.animation = 'fadeOut 1s ease-out';
       this.intro = true;
@@ -383,6 +386,12 @@ export class InfoComponent implements OnInit, AfterContentInit {
     const modal = document.getElementById('modal-test');
     modal.style.display = 'none';
     this.clearUser();
+  }
+
+  saveData() {
+    this.http.post<any>('https://psicologia-usta-database.herokuapp.com/users', this.user).subscribe(data => {
+    
+    })
   }
 
   test11(value) {
