@@ -166,7 +166,7 @@ export class InfoComponent implements OnInit, AfterContentInit {
       nombreTestigo: ['', [Validators.required, Validators.minLength(5)]],
       numDocTestigo: ['', [Validators.required, Validators.min(1000)]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      contacNum: ['', [Validators.required, Validators.min(3000000000)]]
+      contacNum: ['', [Validators.required, Validators.min(1000000)]]
     });
 
     this.formCon2 = this.fb.group({
@@ -175,7 +175,7 @@ export class InfoComponent implements OnInit, AfterContentInit {
       nombreTestigoEst: ['', [Validators.required, Validators.minLength(5)]],
       numDocTestigoEst: ['', [Validators.required, Validators.min(1000)]],
       emailEst: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      contacNumEst: ['', [Validators.required, Validators.min(3000000000)]]
+      contacNumEst: ['', [Validators.required, Validators.min(1000000)]]
     })
   }
 
