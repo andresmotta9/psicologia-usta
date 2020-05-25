@@ -2,6 +2,7 @@ import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 import { Observable, throwError } from 'rxjs';
+import { FirestoreService } from '../../services/firestore/firestore.service';
 
 @Component({
   selector: 'app-info',
@@ -14,7 +15,7 @@ export class InfoComponent implements OnInit, AfterContentInit {
   formCon: FormGroup;
   formCon2: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private firestoreService: FirestoreService) {
     this.createForm();
   }
 
@@ -36,22 +37,18 @@ export class InfoComponent implements OnInit, AfterContentInit {
     numDoc: null,
     codEst: null,
     estrato: null,
-    formPadres: {
-      numeroDocumentoEstudiante: null,
-      codigoEstudiante: null,
-      nombreTestigo: null,
-      numDocTestigo: null,
-      email: null,
-      contacNum: null
-    },
-    formEstudiante: {
-      numeroDocumentoEstudiante: null,
-      codigoEstudiante: null,
-      nombreTestigo: null,
-      numDocTestigo: null,
-      email: null,
-      contacNum: null
-    },
+    formPadres_numeroDocumentoEstudiante: null,
+    formPadres_codigoEstudiante: null,
+    formPadres_nombreTestigo: null,
+    formPadres_numDocTestigo: null,
+    formPadres_email: null,
+    formPadres_contacNum: null,
+    formEstudiante_numeroDocumentoEstudiante: null,
+    formEstudiante_codigoEstudiante: null,
+    formEstudiante_nombreTestigo: null,
+    formEstudiante_numDocTestigo: null,
+    formEstudiante_email: null,
+    formEstudiante_contacNum: null,
     cuestionario1: {
       p1: null,
       p2: null,
@@ -222,21 +219,21 @@ export class InfoComponent implements OnInit, AfterContentInit {
   }
 
   setFormParents() {
-    this.user.formPadres.numeroDocumentoEstudiante = this.formCon.get('numDoc').value;
-    this.user.formPadres.codigoEstudiante = this.formCon.get('codEst').value;
-    this.user.formPadres.nombreTestigo = this.formCon.get('nombreTestigo').value;
-    this.user.formPadres.numDocTestigo = this.formCon.get('numDocTestigo').value;
-    this.user.formPadres.email = this.formCon.get('email').value;
-    this.user.formPadres.contacNum = this.formCon.get('contacNum').value;
+    this.user.formPadres_numeroDocumentoEstudiante = this.formCon.get('numDoc').value;
+    this.user.formPadres_codigoEstudiante = this.formCon.get('codEst').value;
+    this.user.formPadres_nombreTestigo = this.formCon.get('nombreTestigo').value;
+    this.user.formPadres_numDocTestigo = this.formCon.get('numDocTestigo').value;
+    this.user.formPadres_email = this.formCon.get('email').value;
+    this.user.formPadres_contacNum = this.formCon.get('contacNum').value;
   }
 
   setFormEstudent() {
-    this.user.formEstudiante.numeroDocumentoEstudiante = this.formCon2.get('numDocEst').value;
-    this.user.formEstudiante.codigoEstudiante = this.formCon2.get('codEstEst').value;
-    this.user.formEstudiante.nombreTestigo = this.formCon2.get('nombreTestigoEst').value;
-    this.user.formEstudiante.numDocTestigo = this.formCon2.get('numDocTestigoEst').value;
-    this.user.formEstudiante.email = this.formCon2.get('emailEst').value;
-    this.user.formEstudiante.contacNum = this.formCon2.get('contacNumEst').value;
+    this.user.formEstudiante_numeroDocumentoEstudiante = this.formCon2.get('numDocEst').value;
+    this.user.formEstudiante_codigoEstudiante = this.formCon2.get('codEstEst').value;
+    this.user.formEstudiante_nombreTestigo = this.formCon2.get('nombreTestigoEst').value;
+    this.user.formEstudiante_numDocTestigo = this.formCon2.get('numDocTestigoEst').value;
+    this.user.formEstudiante_email = this.formCon2.get('emailEst').value;
+    this.user.formEstudiante_contacNum = this.formCon2.get('contacNumEst').value;
   }
 
   public showLetter() {
@@ -390,8 +387,54 @@ export class InfoComponent implements OnInit, AfterContentInit {
 
   saveData() {
     this.http.post<any>('https://psicologia-usta-database.herokuapp.com/users', this.user).subscribe(data => {
-    
-    })
+    let user = {
+        nombre: this.user.nombre,
+        apellido: this.user.apellido,
+        edad: this.user.edad,
+        genero: this.user.genero,
+        tipoDoc: this.user.tipoDoc,
+        numDoc: this.user.numDoc,
+        codEst: this.user.codEst,
+        estrato: this.user.estrato,
+        formPadres_numeroDocumentoEstudiante: this.user.formPadres_numeroDocumentoEstudiante,
+        formPadres_codigoEstudiante: this.user.formPadres_codigoEstudiante,
+        formPadres_nombreTestigo: this.user.formPadres_nombreTestigo,
+        formPadres_numDocTestigo: this.user.formPadres_numDocTestigo,
+        formPadres_email: this.user.formPadres_email,
+        formPadres_contacNum: this.user.formPadres_contacNum,
+        formEstudiante_numeroDocumentoEstudiante: this.user.formEstudiante_numeroDocumentoEstudiante,
+        formEstudiante_codigoEstudiante: this.user.formEstudiante_codigoEstudiante,
+        formEstudiante_nombreTestigo: this.user.formEstudiante_nombreTestigo,
+        formEstudiante_numDocTestigo: this.user.formEstudiante_numDocTestigo,
+        formEstudiante_email: this.user.formEstudiante_email,
+        formEstudiante_contacNum: this.user.formEstudiante_contacNum,
+        cuestionario1_p1: this.user.cuestionario1.p1,
+        cuestionario1_p2: this.user.cuestionario1.p2,
+        cuestionario1_p3: this.user.cuestionario1.p3,
+        cuestionario1_p4: this.user.cuestionario1.p4,
+        cuestionario1_p5: this.user.cuestionario1.p5,
+        cuestionario1_p6: this.user.cuestionario1.p6,
+        cuestionario1_p7: this.user.cuestionario1.p7,
+        cuestionario1_p8: this.user.cuestionario1.p8,
+        cuestionario1_p9: this.user.cuestionario1.p9,
+        cuestionario1_p10: this.user.cuestionario1.p10,
+        cuestionario1_p11: this.user.cuestionario1.p11,
+        cuestionario1_p12: this.user.cuestionario1.p12,
+        cuestionario1_p13: this.user.cuestionario1.p13,
+        cuestionario1_p14: this.user.cuestionario1.p14,
+        cuestionario1_p15: this.user.cuestionario1.p15,
+        cuestionario2_p1: this.user.cuestionario2.p1,
+        cuestionario2_p2: this.user.cuestionario2.p2,
+        cuestionario2_p3: this.user.cuestionario2.p3,
+        cuestionario2_p4: this.user.cuestionario2.p4,
+        cuestionario2_p5: this.user.cuestionario2.p5
+      };
+    this.firestoreService.createCat(user).then(() => {
+      console.log('Documento creado exitósamente!');
+    }, (error) => {
+      console.error(error);
+    });
+  })
   }
 
   test11(value) {
